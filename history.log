@@ -6436,3 +6436,51 @@
 08.10.2023 15:33:20 - werkzeug - INFO -  * Restarting with stat
 08.10.2023 15:33:20 - werkzeug - WARNING -  * Debugger is active!
 08.10.2023 15:33:20 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+08.10.2023 15:36:18 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+08.10.2023 15:36:18 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08.10.2023 15:36:18 - werkzeug - INFO -  * Restarting with stat
+08.10.2023 15:36:19 - werkzeug - WARNING -  * Debugger is active!
+08.10.2023 15:36:19 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+08.10.2023 15:48:12 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+08.10.2023 15:48:12 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08.10.2023 15:48:12 - werkzeug - INFO -  * Restarting with stat
+08.10.2023 15:48:17 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+08.10.2023 15:48:17 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08.10.2023 15:48:17 - werkzeug - INFO -  * Restarting with stat
+08.10.2023 15:48:18 - werkzeug - WARNING -  * Debugger is active!
+08.10.2023 15:48:18 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+08.10.2023 15:48:25 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+08.10.2023 15:48:25 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:48:25] "POST /auth HTTP/1.1" 200 -
+08.10.2023 15:48:50 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:48:50] "GET /teacher HTTP/1.1" 200 -
+08.10.2023 15:48:55 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+08.10.2023 15:48:55 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:48:55] "POST /auth HTTP/1.1" 200 -
+08.10.2023 15:48:58 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:48:58] "GET /teacher HTTP/1.1" 200 -
+08.10.2023 15:49:22 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+08.10.2023 15:49:22 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:49:22] "POST /auth HTTP/1.1" 200 -
+08.10.2023 15:50:27 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:50:27] "GET /teacher HTTP/1.1" 200 -
+08.10.2023 15:50:34 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+08.10.2023 15:50:34 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:50:34] "POST /auth HTTP/1.1" 200 -
+08.10.2023 15:50:37 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:50:37] "GET /teacher HTTP/1.1" 200 -
+08.10.2023 15:50:50 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+08.10.2023 15:50:50 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:50:50] "POST /auth HTTP/1.1" 200 -
+08.10.2023 15:51:05 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:51:05] "GET /teacher HTTP/1.1" 200 -
+08.10.2023 15:51:12 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+08.10.2023 15:51:12 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:51:12] "POST /auth HTTP/1.1" 200 -
+08.10.2023 15:51:16 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 15:51:16] "GET /teacher HTTP/1.1" 200 -
+08.10.2023 15:51:40 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+08.10.2023 15:51:40 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08.10.2023 15:51:40 - werkzeug - INFO -  * Restarting with stat
+08.10.2023 15:51:40 - werkzeug - WARNING -  * Debugger is active!
+08.10.2023 15:51:40 - werkzeug - INFO -  * Debugger PIN: 148-040-217

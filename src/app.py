@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
 import sqlite3
 import jwt
+import sys
 from flask import Flask, jsonify, request
 
 from bp_routes.teachers import teachers_bp
@@ -54,6 +55,8 @@ def authorize_user():
             return "401", 401
 
     token = get_auth_token(password, role)
+    if sys.version_info.minor < 10:
+        token = token.decode("utf-8")
     
     if role == "teacher":
         logger.info(f"Учитель с id {user} вошёл в программу")

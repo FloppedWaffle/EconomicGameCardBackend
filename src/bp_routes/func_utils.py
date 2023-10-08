@@ -45,8 +45,7 @@ logging.basicConfig(
     filemode='a',
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.DEBUG,
-    datefmt='%d.%m.%Y %H:%M:%S',
-    encoding='utf-8'
+    datefmt='%d.%m.%Y %H:%M:%S'
 )
 logger = logging.getLogger('rest_logger')
 

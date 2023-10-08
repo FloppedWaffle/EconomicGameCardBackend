@@ -26,7 +26,6 @@ def get_company(sub=None, role=None):
         taxes = str(company[3])
         is_state = bool(company[4])
         company_id = company[5]
-        print(is_state)
     
         cur.execute("""
                     SELECT firstname, lastname FROM players WHERE company_id = ? AND is_founder = 1
