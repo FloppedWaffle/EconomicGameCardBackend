@@ -5,10 +5,12 @@ import time
 from datetime import datetime, timedelta, timezone
 import jwt
 import logging
+import platform
 
 LOG_FILE = "history.log"
 secret = "waffle" # TODO: перенести в перменную среды на системе
 HASH_ALGO = "HS256"
+
 SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проектики/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
 
 def get_auth_token(password: str, role: str) -> str:
