@@ -6432,3 +6432,7 @@
 08.10.2023 14:41:26 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 14:41:26] "POST /auth HTTP/1.1" 200 -
 08.10.2023 14:41:26 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 14:41:26] "GET /company HTTP/1.1" 200 -
 08.10.2023 14:41:26 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 14:41:26] "GET /company/get_services HTTP/1.1" 200 -
+08.10.2023 15:33:20 - werkzeug - INFO -  * Detected change in 'c:\\Users\\FloppedWaffle\\Desktop\\Проектики\\EconomicGame 2023\\Flask Backend (indev)\\src\\bp_routes\\bankers.py', reloading
+08.10.2023 15:33:20 - werkzeug - INFO -  * Restarting with stat
+08.10.2023 15:33:20 - werkzeug - WARNING -  * Debugger is active!
+08.10.2023 15:33:20 - werkzeug - INFO -  * Debugger PIN: 148-040-217

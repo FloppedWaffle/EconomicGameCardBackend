@@ -234,7 +234,7 @@ def pay_company_taxes(sub=None, role=None):
             balance = player[1]
             if balance < tax_amount:
                 return "400", 400
-
+    
         cur.execute("""
                     SELECT taxes
                     FROM companies
