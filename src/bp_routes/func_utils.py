@@ -12,6 +12,9 @@ secret = "waffle" # TODO: перенести в перменную среды н
 HASH_ALGO = "HS256"
 
 SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проектики/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
+if platform.system() == "Linux":
+    SQLITE_PATH = "/root/EconomicGameCardBackend/data/payments.sqlite"
+
 
 def get_auth_token(password: str, role: str) -> str:
     current_time = datetime.now(tz=timezone.utc)
