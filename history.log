@@ -6484,3 +6484,90 @@
 08.10.2023 15:51:40 - werkzeug - INFO -  * Restarting with stat
 08.10.2023 15:51:40 - werkzeug - WARNING -  * Debugger is active!
 08.10.2023 15:51:40 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+08.10.2023 17:26:56 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+08.10.2023 17:26:56 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08.10.2023 17:26:56 - werkzeug - INFO -  * Restarting with stat
+08.10.2023 17:26:56 - werkzeug - WARNING -  * Debugger is active!
+08.10.2023 17:26:56 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+08.10.2023 17:27:05 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+08.10.2023 17:27:05 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:05] "POST /auth HTTP/1.1" 200 -
+08.10.2023 17:27:05 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:05] "GET /teacher HTTP/1.1" 200 -
+08.10.2023 17:27:11 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+08.10.2023 17:27:11 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:11] "POST /auth HTTP/1.1" 200 -
+08.10.2023 17:27:11 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:11] "GET /company HTTP/1.1" 200 -
+08.10.2023 17:27:11 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:11] "GET /company/get_services HTTP/1.1" 200 -
+08.10.2023 17:27:16 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+08.10.2023 17:27:16 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:16] "POST /auth HTTP/1.1" 200 -
+08.10.2023 17:27:16 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:16] "GET /banker HTTP/1.1" 200 -
+08.10.2023 17:27:18 - werkzeug - INFO - 192.168.1.2 - - [08/Oct/2023 17:27:18] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:29:08 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+09.10.2023 18:29:08 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09.10.2023 18:29:08 - werkzeug - INFO -  * Restarting with stat
+09.10.2023 18:29:08 - werkzeug - WARNING -  * Debugger is active!
+09.10.2023 18:29:08 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+09.10.2023 18:31:47 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+09.10.2023 18:31:47 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:31:47] "POST /auth HTTP/1.1" 200 -
+09.10.2023 18:31:47 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:31:47] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:32:24 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:24] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:32:38 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:38] "[31m[1mPOST /banker/pay_company_taxes HTTP/1.1[0m" 400 -
+09.10.2023 18:32:39 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:39] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:32:46 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:46] "POST /banker/transfer_money HTTP/1.1" 200 -
+09.10.2023 18:32:47 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:47] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:32:52 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:52] "POST /banker/pay_company_taxes HTTP/1.1" 200 -
+09.10.2023 18:32:54 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:54] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:32:57 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:57] "[31m[1mPOST /banker/pay_company_taxes HTTP/1.1[0m" 400 -
+09.10.2023 18:32:59 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:32:59] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:33:01 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:33:01] "[31m[1mPOST /banker/pay_company_taxes HTTP/1.1[0m" 400 -
+09.10.2023 18:33:02 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:33:02] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:33:03 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:33:03] "POST /banker/pay_company_taxes HTTP/1.1" 200 -
+09.10.2023 18:33:05 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:33:05] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:33:06 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:33:06] "POST /banker/pay_company_taxes HTTP/1.1" 200 -
+09.10.2023 18:33:08 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:33:08] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:34:43 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:34:43] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:34:53 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:34:53] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:34:54 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:34:54] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:35:31 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:35:31] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:36:03 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+09.10.2023 18:36:03 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:03] "POST /auth HTTP/1.1" 200 -
+09.10.2023 18:36:03 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:03] "GET /teacher HTTP/1.1" 200 -
+09.10.2023 18:36:19 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+09.10.2023 18:36:19 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:19] "POST /auth HTTP/1.1" 200 -
+09.10.2023 18:36:20 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:20] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:36:22 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:22] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:36:39 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+09.10.2023 18:36:39 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09.10.2023 18:36:39 - werkzeug - INFO -  * Restarting with stat
+09.10.2023 18:36:39 - werkzeug - WARNING -  * Debugger is active!
+09.10.2023 18:36:39 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+09.10.2023 18:36:43 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+09.10.2023 18:36:43 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:43] "POST /auth HTTP/1.1" 200 -
+09.10.2023 18:36:43 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:43] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:36:44 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:44] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:36:53 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:53] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:36:56 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:36:56] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:38:01 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:01] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:38:07 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:07] "POST /banker/pay_company_taxes HTTP/1.1" 200 -
+09.10.2023 18:38:10 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:10] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:38:11 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:11] "POST /banker/pay_company_taxes HTTP/1.1" 200 -
+09.10.2023 18:38:16 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:16] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:38:20 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:20] "POST /banker/pay_company_taxes HTTP/1.1" 200 -
+09.10.2023 18:38:21 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:21] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:38:32 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+09.10.2023 18:38:32 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:32] "POST /auth HTTP/1.1" 200 -
+09.10.2023 18:38:32 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:32] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:38:33 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:33] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:38:35 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:35] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:38:54 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:54] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:38:59 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+09.10.2023 18:38:59 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:59] "POST /auth HTTP/1.1" 200 -
+09.10.2023 18:38:59 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:59] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:39:00 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:39:00] "POST /banker/get_person HTTP/1.1" 200 -

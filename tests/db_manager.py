@@ -94,31 +94,31 @@ class gameDB:
 
     def erase_table_players(self):
         with self.con:
-            self.cur.execute("""DROP TABLE players IF EXISTS;""")
+            self.cur.execute("""DROP TABLE IF EXISTS players;""")
             self.con.commit()
 
 
     def erase_table_teachers(self):
         with self.con:
-            self.cur.execute("""DROP TABLE teachers IF EXISTS;""")
+            self.cur.execute("""DROP TABLE IF EXISTS teachers;""")
             self.con.commit()
 
 
     def erase_table_companies(self):
         with self.con:
-            self.cur.execute("""DROP TABLE companies IF EXISTS;""")
+            self.cur.execute("""DROP TABLE IF EXISTS companies;""")
             self.con.commit()
 
 
     def erase_table_services(self):
         with self.con:
-            self.cur.execute("""DROP TABLE services IF EXISTS;""")
+            self.cur.execute("""DROP TABLE IF EXISTS services;""")
             self.con.commit()
 
 
     def erase_table_bankers(self):
         with self.con:
-            self.cur.execute("""DROP TABLE bankers IF EXISTS;""")
+            self.cur.execute("""DROP TABLE IF EXISTS bankers;""")
             self.con.commit()
 
 
@@ -286,7 +286,7 @@ def pass_period():
 
 
 if __name__ == "__main__":
-    passPer = True
+    passPer = False
     if passPer:
         pass_period()
     else:

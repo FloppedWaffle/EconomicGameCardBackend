@@ -244,6 +244,8 @@ def pay_company_taxes(sub=None, role=None):
         if not company:
             return jsonify(error="company_not_found"), 404
         taxes = company[0]
+        if not taxes:
+            return jsonify(tax_amount=0)
         if tax_amount > taxes:
             tax_amount = taxes
 
@@ -261,7 +263,7 @@ def pay_company_taxes(sub=None, role=None):
             
         con.commit()
 
-    return "200"
+    return jsonify(tax_amount=tax_amount)
 
 
 
