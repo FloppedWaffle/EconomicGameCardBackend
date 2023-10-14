@@ -6571,3 +6571,96 @@
 09.10.2023 18:38:59 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:59] "POST /auth HTTP/1.1" 200 -
 09.10.2023 18:38:59 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:38:59] "GET /banker HTTP/1.1" 200 -
 09.10.2023 18:39:00 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:39:00] "POST /banker/get_person HTTP/1.1" 200 -
+09.10.2023 18:43:48 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+09.10.2023 18:43:48 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09.10.2023 18:43:48 - werkzeug - INFO -  * Restarting with stat
+09.10.2023 18:43:48 - werkzeug - WARNING -  * Debugger is active!
+09.10.2023 18:43:48 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+09.10.2023 18:43:49 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+09.10.2023 18:43:49 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:43:49] "POST /auth HTTP/1.1" 200 -
+09.10.2023 18:43:49 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:43:49] "GET /banker HTTP/1.1" 200 -
+09.10.2023 18:43:51 - werkzeug - INFO - 192.168.1.2 - - [09/Oct/2023 18:43:51] "[33mPOST /banker/get_person HTTP/1.1[0m" 404 -
+14.10.2023 11:21:57 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.187:5000
+14.10.2023 11:21:57 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+14.10.2023 11:21:57 - werkzeug - INFO -  * Restarting with stat
+14.10.2023 11:21:57 - werkzeug - WARNING -  * Debugger is active!
+14.10.2023 11:21:57 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+14.10.2023 11:22:17 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 11:22:17 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:22:17] "POST /auth HTTP/1.1" 200 -
+14.10.2023 11:22:17 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:22:17] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 11:22:20 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 11:22:20 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:22:20] "POST /auth HTTP/1.1" 200 -
+14.10.2023 11:22:20 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:22:20] "GET /company HTTP/1.1" 200 -
+14.10.2023 11:22:20 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:22:20] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 11:22:37 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+14.10.2023 11:22:37 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:22:37] "POST /auth HTTP/1.1" 200 -
+14.10.2023 11:22:38 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:22:38] "GET /banker HTTP/1.1" 200 -
+14.10.2023 11:23:53 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 11:23:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:23:53] "POST /auth HTTP/1.1" 200 -
+14.10.2023 11:23:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:23:53] "GET /company HTTP/1.1" 200 -
+14.10.2023 11:23:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:23:53] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 11:40:11 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 11:40:11 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:40:11] "POST /auth HTTP/1.1" 200 -
+14.10.2023 11:40:11 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 11:40:11] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 13:51:20 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:51:20] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 13:52:17 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 13:52:17 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:52:17] "POST /auth HTTP/1.1" 200 -
+14.10.2023 13:52:18 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:52:18] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:52:18 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:52:18] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 13:54:39 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:54:39] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:54:39 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:54:39] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 13:54:59 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:54:59] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:54:59 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:54:59] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 13:55:30 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:55:30] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:55:30 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:55:30] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 13:57:10 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:57:10] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:57:10 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:57:10] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 13:57:51 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:57:51] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:57:51 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:57:51] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 13:58:38 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:58:38] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:58:38 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:58:38] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 13:59:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:59:32] "GET /company HTTP/1.1" 200 -
+14.10.2023 13:59:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 13:59:32] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 14:00:19 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:00:19] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:00:19 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:00:19] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 14:00:48 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 14:00:48 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:00:48] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:00:48 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:00:48] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:00:48 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:00:48] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 14:02:23 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 14:02:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:02:23] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:02:24 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:02:24] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 14:02:44 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:02:44] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 14:17:46 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 14:17:46 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:17:46] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:17:46 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:17:46] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 14:30:37 - rest_logger - INFO - Фирма с id (50,) вошла в программу
+14.10.2023 14:30:37 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:30:37] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:30:37 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:30:37] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:30:37 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:30:37] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 14:33:30 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:33:30] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:33:30 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:33:30] "GET /company/get_services HTTP/1.1" 200 -
+14.10.2023 14:34:30 - werkzeug - INFO -  * Detected change in 'c:\\Users\\FloppedWaffle\\Desktop\\Проектики\\EconomicGame 2023\\Flask Backend (indev)\\src\\bp_routes\\companies.py', reloading
+14.10.2023 14:34:30 - werkzeug - INFO -  * Restarting with stat
+14.10.2023 14:34:30 - werkzeug - WARNING -  * Debugger is active!
+14.10.2023 14:34:30 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+14.10.2023 14:37:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:37:53] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:37:57 - werkzeug - INFO -  * Detected change in 'c:\\Users\\FloppedWaffle\\Desktop\\Проектики\\EconomicGame 2023\\Flask Backend (indev)\\src\\bp_routes\\companies.py', reloading
+14.10.2023 14:37:57 - werkzeug - INFO -  * Restarting with stat
+14.10.2023 14:37:57 - werkzeug - WARNING -  * Debugger is active!
+14.10.2023 14:37:57 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+14.10.2023 14:37:58 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:37:58] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:38:13 - werkzeug - INFO -  * Detected change in 'c:\\Users\\FloppedWaffle\\Desktop\\Проектики\\EconomicGame 2023\\Flask Backend (indev)\\src\\bp_routes\\companies.py', reloading
+14.10.2023 14:38:13 - werkzeug - INFO -  * Restarting with stat
+14.10.2023 14:38:14 - werkzeug - WARNING -  * Debugger is active!
+14.10.2023 14:38:14 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+14.10.2023 14:38:19 - werkzeug - INFO -  * Detected change in 'c:\\Users\\FloppedWaffle\\Desktop\\Проектики\\EconomicGame 2023\\Flask Backend (indev)\\src\\bp_routes\\companies.py', reloading
+14.10.2023 14:38:19 - werkzeug - INFO -  * Restarting with stat
+14.10.2023 14:38:19 - werkzeug - WARNING -  * Debugger is active!
+14.10.2023 14:38:19 - werkzeug - INFO -  * Debugger PIN: 148-040-217

@@ -33,9 +33,17 @@ def get_company(sub=None, role=None):
         founders = cur.fetchall()
         if not founders and not is_state:
             return "404", 404
+        
+        cur.execute("""
+                    SELECT service_id, name, cost, quantity
+                    FROM services 
+                    WHERE company_id = ? AND quantity > 0;
+                    """, (company_id, ))
+        services = cur.fetchall()
 
     return jsonify(name=name, balance=balance, profit=profit, 
-                   tax_paid=taxes, is_state=is_state, founders=founders)
+                   tax_paid=taxes, is_state=is_state, founders=founders, 
+                   services=services)
 
 
 
@@ -105,31 +113,7 @@ def pay_founder(sub=None, role=None):
         con.commit()
         
     return "200"
-    
 
-
-@companies_bp.route("/company/get_services", methods=["GET"])
-@check_authorization
-def get_services(sub=None, role=None):
-    with sqlite3.connect(SQLITE_PATH) as con:
-        cur = con.cursor()
-
-        cur.execute("""
-                    SELECT company_id 
-                    FROM companies 
-                    WHERE password = ?;
-                    """, (sub, ))
-        company_id = cur.fetchone()[0]
-
-        cur.execute("""
-                    SELECT service_id, name, cost, quantity
-                    FROM services 
-                    WHERE company_id = ? AND quantity > 0;
-                    """, (company_id, ))
-        services = cur.fetchall()
-
-    return jsonify(services=services)
-    
 
 
 @companies_bp.route("/company/pay_services", methods=["POST"])

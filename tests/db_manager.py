@@ -129,8 +129,8 @@ class gameDB:
             # тест всех функций, связанных с игроком
             cur.execute("""
                     INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Василий", "Пупкин", "5Б", 2000, 1, 0, 0, "05 86 89 9e fa 12 00", 1, 1)
-                    """) # uid - карта социальная, кста))))
+                    VALUES("Василий", "Пупкин", "5Б", 2000, 1, 0, 0, "1d 73 4a 5e 00 00 03", 1, 1)
+                    """) # uid - карта школы, кста))))
             
             cur.execute("""
                         INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id) 
@@ -176,7 +176,7 @@ class gameDB:
             cur.execute("""
                         INSERT INTO teachers(firstname, middlename, password, subject_name, balance, nfc_uid) 
                         VALUES("Владимир", "Александрович", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
-                        "Государственное предприятие 'Математический ответник'", 1000, "nfc_test6")
+                        "Государственное предприятие 'Математический ответник'", 1000, "04 9a 4c 52 a6 34 80")
                         """) # teacherpas hash
 
             con.commit()
