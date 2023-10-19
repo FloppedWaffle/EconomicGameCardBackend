@@ -142,15 +142,15 @@ class gameDB:
 
             cur.execute("""
                 INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id) 
-                VALUES("Магомед", "Крахтенбергенберггенберг", "7Ы", 0, 1, 0, 0, "nfc_test1", 0, 0)
+                VALUES("Терентий", "Пельменьевич", "7Ы", 0, 1, 0, 0, "nfc_test1", 0, 0)
                 """)
             cur.execute("""
                     INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Магомед", "Курбанмагом", "8Г (ШО-2) (фирма)", 0, 0, 0, 0, "nfc_test2", 1, 1)
+                    VALUES("Чебурешик", "Лолкекович", "8Г (ШО-2) (фирма)", 0, 0, 0, 0, "nfc_test2", 1, 1)
                     """)
             cur.execute("""
                 INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                VALUES("Магомед", "Курбан", "8Г (ШО-2) (мин)", 0, 0, 1, 0, "nfc_test3", 0, 0)
+                VALUES("Чебурешик", "Лолкекович", "8Г (ШО-2) (мин)", 0, 0, 1, 0, "nfc_test3", 0, 0)
                 """)
             
 
@@ -175,8 +175,8 @@ class gameDB:
             # учителя
             cur.execute("""
                         INSERT INTO teachers(firstname, middlename, password, subject_name, balance, nfc_uid) 
-                        VALUES("Владимир", "Александрович", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
-                        "Государственное предприятие 'Математический ответник'", 1000, "04 9a 4c 52 a6 34 80")
+                        VALUES("Константин", "Константинович", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
+                        'Государственное предприятие "Я ЗАНИМАЮСЬ ФИГНЁЙ!"', 1337, "04 9a 4c 52 a6 34 80")
                         """) # teacherpas hash
 
             con.commit()

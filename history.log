@@ -6664,3 +6664,175 @@
 14.10.2023 14:38:19 - werkzeug - INFO -  * Restarting with stat
 14.10.2023 14:38:19 - werkzeug - WARNING -  * Debugger is active!
 14.10.2023 14:38:19 - werkzeug - INFO -  * Debugger PIN: 148-040-217
+14.10.2023 14:38:51 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 14:38:51 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:38:51] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:38:51 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:38:51] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:38:59 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:38:59] "POST /company/pay_services HTTP/1.1" 200 -
+14.10.2023 14:39:00 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:39:00] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:39:08 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:39:08] "POST /company/pay_services HTTP/1.1" 200 -
+14.10.2023 14:39:10 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:39:10] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:39:15 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:39:15] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:39:22 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:39:22] "POST /company/pay_services HTTP/1.1" 200 -
+14.10.2023 14:39:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:39:23] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:40:37 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:40:37] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:40:42 - rest_logger - INFO - Фирма с id (50,) вошла в программу
+14.10.2023 14:40:42 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:40:42] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:40:42 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:40:42] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:42:10 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:42:10] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:43:40 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 14:43:40 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:43:40] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:43:40 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:43:40] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:44:07 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 14:44:07 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:44:07] "POST /auth HTTP/1.1" 200 -
+14.10.2023 14:44:07 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:44:07] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:47:35 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:47:35] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:47:47 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:47:47] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:48:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:48:23] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:50:01 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:50:01] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:56:52 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:56:52] "GET /company HTTP/1.1" 200 -
+14.10.2023 14:58:02 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 14:58:02] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:00:24 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:00:24] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:00:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:00:53] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:02:29 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:02:29] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:08:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:08:32] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:10:32 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 15:10:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:32] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:10:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:32] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:10:36 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 15:10:36 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:36] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:10:36 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:36] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:10:42 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+14.10.2023 15:10:42 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:42] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:10:42 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:42] "GET /banker HTTP/1.1" 200 -
+14.10.2023 15:10:46 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 15:10:46 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:46] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:10:46 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:10:46] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:11:57 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 15:11:57 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:11:57] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:11:57 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:11:57] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:12:00 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 15:12:00 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:00] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:12:00 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:00] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:12:04 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 15:12:04 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:04] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:12:04 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:04] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:12:08 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+14.10.2023 15:12:08 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:08] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:12:08 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:08] "GET /banker HTTP/1.1" 200 -
+14.10.2023 15:12:13 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 15:12:13 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:13] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:12:13 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:13] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:12:17 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:17] "[31m[1mPOST /auth HTTP/1.1[0m" 401 -
+14.10.2023 15:12:19 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 15:12:19 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:19] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:12:19 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:12:19] "GET /company HTTP/1.1" 200 -
+14.10.2023 15:47:56 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 15:47:56 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:47:56] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:47:56 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:47:56] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:49:39 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:49:39] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:50:06 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:50:06] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:50:10 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 15:50:10 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:50:10] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:50:10 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:50:10] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 15:51:05 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:51:05] "[31m[1mPOST /auth HTTP/1.1[0m" 401 -
+14.10.2023 15:51:09 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 15:51:09 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:51:09] "POST /auth HTTP/1.1" 200 -
+14.10.2023 15:51:09 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 15:51:09] "GET /company HTTP/1.1" 200 -
+14.10.2023 16:15:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:15:23] "GET /company HTTP/1.1" 200 -
+14.10.2023 16:15:27 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 16:15:27 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:15:27] "POST /auth HTTP/1.1" 200 -
+14.10.2023 16:15:27 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:15:27] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:15:52 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:15:52] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:16:01 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:16:01] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:21:57 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:21:57] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:24:34 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:24:34] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:26:30 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:26:30] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:27:20 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:27:20] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:27:43 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:27:43] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:28:15 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:28:15] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:28:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:28:32] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:29:22 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:29:22] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:31:40 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:31:40] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:32:31 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:32:31] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:32:40 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:32:40] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:34:27 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:34:27] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:34:49 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:34:49] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:35:16 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:35:16] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:35:17 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:35:17] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:37:51 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:37:51] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:37:51 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:37:51] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 16:37:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:37:53] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:37:58 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:37:58] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:37:58 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:37:58] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:37:58 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:37:58] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:38:03 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:38:03] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:38:04 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:38:04] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:38:05 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:38:05] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:38:09 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:38:09] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:38:36 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:38:36] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:38:40 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:38:40] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 16:38:44 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 16:38:44] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 17:07:59 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:07:59] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:08:09 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 17:08:09 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:09] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:08:09 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:09] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:08:09 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:09] "[33mGET /company/get_services HTTP/1.1[0m" 404 -
+14.10.2023 17:08:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:32] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:08:32 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:32] "[33mGET /company/get_services HTTP/1.1[0m" 404 -
+14.10.2023 17:08:36 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:36] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:08:36 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:36] "[33mGET /company/get_services HTTP/1.1[0m" 404 -
+14.10.2023 17:08:47 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:08:47] "POST /company/get_founders HTTP/1.1" 200 -
+14.10.2023 17:09:00 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:09:00] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:09:40 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:09:40] "POST /company/get_founders HTTP/1.1" 200 -
+14.10.2023 17:09:46 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:09:46] "POST /company/pay_founder HTTP/1.1" 200 -
+14.10.2023 17:09:47 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:09:47] "POST /company/pay_founder HTTP/1.1" 200 -
+14.10.2023 17:09:49 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:09:49] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:09:50 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:09:50] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:09:50 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:09:50] "[33mGET /company/get_services HTTP/1.1[0m" 404 -
+14.10.2023 17:10:27 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+14.10.2023 17:10:27 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:10:27] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:10:27 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:10:27] "GET /banker HTTP/1.1" 200 -
+14.10.2023 17:13:56 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+14.10.2023 17:13:56 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:13:56] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:13:56 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:13:56] "GET /banker HTTP/1.1" 200 -
+14.10.2023 17:13:59 - rest_logger - INFO - Банкир с id (1,) вошёл в программу
+14.10.2023 17:13:59 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:13:59] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:13:59 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:13:59] "GET /banker HTTP/1.1" 200 -
+14.10.2023 17:14:47 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:14:47] "POST /banker/get_person HTTP/1.1" 200 -
+14.10.2023 17:14:50 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:14:50] "POST /banker/get_person HTTP/1.1" 200 -
+14.10.2023 17:16:26 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:16:26] "POST /banker/get_person HTTP/1.1" 200 -
+14.10.2023 17:16:29 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:16:29] "POST /banker/get_person HTTP/1.1" 200 -
+14.10.2023 17:16:53 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 17:16:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:16:53] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:16:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:16:53] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:16:56 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 17:16:56 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:16:56] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:16:56 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:16:56] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:17:47 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:17:47] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 17:17:53 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:17:53] "POST /teacher/get_students HTTP/1.1" 200 -
+14.10.2023 17:18:12 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:12] "POST /teacher/pay_student_salary HTTP/1.1" 200 -
+14.10.2023 17:18:17 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:17] "POST /teacher/pay_student_salary HTTP/1.1" 200 -
+14.10.2023 17:18:20 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:20] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:18:21 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:21] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:18:22 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:22] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:18:22 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:22] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:18:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:23] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:18:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:23] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:18:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:23] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:18:24 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:18:24] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:19:30 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:19:30] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:22:16 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 17:22:16 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:22:16] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:22:16 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:22:16] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:22:27 - rest_logger - INFO - Фирма с id (1,) вошла в программу
+14.10.2023 17:22:27 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:22:27] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:22:27 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:22:27] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:25:15 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:25:15] "GET /company HTTP/1.1" 200 -
+14.10.2023 17:25:22 - rest_logger - INFO - Учитель с id (1,) вошёл в программу
+14.10.2023 17:25:22 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:25:22] "POST /auth HTTP/1.1" 200 -
+14.10.2023 17:25:22 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:25:22] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:25:41 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:25:41] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:26:17 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:26:17] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:26:23 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:26:23] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:35:07 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:35:07] "GET /teacher HTTP/1.1" 200 -
+14.10.2023 17:35:21 - werkzeug - INFO - 192.168.1.2 - - [14/Oct/2023 17:35:21] "GET /teacher HTTP/1.1" 200 -
