@@ -20,10 +20,12 @@ def get_teacher_info(sub=None, role=None):
         teacher = cur.fetchone()
     if not teacher:
         return "404", 404
+    
     name = teacher[0] + " " + teacher[1]
     balance = str(teacher[2])
     subject_name = teacher[3]
     
+
     return jsonify(name=name, balance=balance, subject_name=subject_name)
 
 
@@ -34,6 +36,7 @@ def get_students(sub=None, role=None):
     firstname = request.get_json().get("firstname")
     lastname = request.get_json().get("lastname")
     
+
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
 
@@ -44,6 +47,7 @@ def get_students(sub=None, role=None):
                     """, (firstname + "%", lastname + "%",))
         players = cur.fetchall()
         
+
     return jsonify(players=players)
 
 
@@ -51,28 +55,50 @@ def get_students(sub=None, role=None):
 @teachers_bp.route("/teacher/pay_student_salary", methods=["POST"])
 @check_authorization
 def pay_salary(sub=None, role=None):
-    player_id = request.get_json().get("player_id")
     salary = request.get_json().get("salary")
+    is_card = bool(request.get_json().get("is_card"))
+    if is_card:
+        uid = request.get_json().get("uid")
+    else:
+        player_id = request.get_json().get("player_id")
+
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor();
 
-        cur.execute("""
-                    SELECT tax_paid 
-                    FROM players 
-                    WHERE player_id = ?;
-                    """, (player_id, ))
-        tax_paid = cur.fetchone()[0]
-        if not tax_paid:
-            salary -= salary * 0.1
-        
-        cur.execute("""
-                    UPDATE players 
-                    SET balance = balance + ?, tax_paid = 1 
-                    WHERE player_id = ?;
-                    """, (salary, player_id, ))
+        if is_card:
+            cur.execute("""
+                        SELECT tax_paid 
+                        FROM players 
+                        WHERE nfc_uid = ?;
+                        """, (uid, ))
+            tax_paid = cur.fetchone()[0]
+            if not tax_paid:
+                salary -= salary * 0.1
+            
+            cur.execute("""
+                        UPDATE players 
+                        SET balance = balance + ?, tax_paid = 1 
+                        WHERE nfc_uid = ?;
+                        """, (salary, uid, ))          
+        else:
+            cur.execute("""
+                        SELECT tax_paid 
+                        FROM players 
+                        WHERE player_id = ?;
+                        """, (player_id, ))
+            tax_paid = cur.fetchone()[0]
+            if not tax_paid:
+                salary -= salary * 0.1
+            
+            cur.execute("""
+                        UPDATE players 
+                        SET balance = balance + ?, tax_paid = 1 
+                        WHERE player_id = ?;
+                        """, (salary, player_id, ))
         con.commit()
         
+
     return "200"
     
 
@@ -80,16 +106,28 @@ def pay_salary(sub=None, role=None):
 @teachers_bp.route("/teacher/pay_student_taxes", methods=["POST"])
 @check_authorization
 def pay_student_taxes(sub=None, role=None):
-    player_id = request.get_json().get("player_id")
+    is_card = bool(request.get_json().get("is_card"))
+    if is_card:
+        uid = request.get_json().get("uid")
+    else:
+        player_id = request.get_json().get("player_id")
+
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
 
-        cur.execute("""
-                    UPDATE players 
-                    SET tax_paid = 1 
-                    WHERE player_id = ?;
-                    """, (player_id, ))
+        if is_card:
+            cur.execute("""
+                        UPDATE players 
+                        SET tax_paid = 1 
+                        WHERE nfc_uid = ?;
+                        """, (uid, ))
+        else:
+            cur.execute("""
+                        UPDATE players 
+                        SET tax_paid = 1 
+                        WHERE player_id = ?;
+                        """, (player_id, ))
         con.commit()
 
     return "200"

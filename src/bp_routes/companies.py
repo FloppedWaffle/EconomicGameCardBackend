@@ -133,7 +133,6 @@ def pay_services(sub=None, role=None):
                         WHERE nfc_uid = ?;
                         """, (uid, ))
             person = cur.fetchone()
-            
             if not person:
                 person_table = "teachers"
                 cur.execute("""
@@ -142,7 +141,6 @@ def pay_services(sub=None, role=None):
                             WHERE nfc_uid = ?;
                             """, (uid, ))
                 person = cur.fetchone()
-            
             if not person:
                 return "404", 404
             balance = person[1]
@@ -160,7 +158,6 @@ def pay_services(sub=None, role=None):
         for pair in services:
             service_id = pair["service_id"]
             quantity = pair["quantity"]
-
             cur.execute("""
                         SELECT cost
                         FROM services
@@ -169,6 +166,7 @@ def pay_services(sub=None, role=None):
             cost = cur.fetchone()
             if not cost:
                 return jsonify(error="no_enough_quantity"), 400
+            
             all_cost += cost[0] * quantity
             
 
@@ -182,7 +180,6 @@ def pay_services(sub=None, role=None):
                         WHERE nfc_uid = ?;
                         """, (all_cost, uid, ))
         
-
             cur.execute("""
                         UPDATE companies
                         SET balance = balance + ?, profit = profit + ?
@@ -199,7 +196,6 @@ def pay_services(sub=None, role=None):
         for pair in services:
             service_id = pair["service_id"]
             quantity = pair["quantity"]
-
             cur.execute("""
                         UPDATE services
                         SET quantity = quantity - ?
@@ -207,5 +203,6 @@ def pay_services(sub=None, role=None):
                         """, (quantity, service_id, ))
         
         con.commit()
+
 
     return "200"

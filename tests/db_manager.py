@@ -129,13 +129,18 @@ class gameDB:
             # тест всех функций, связанных с игроком
             cur.execute("""
                     INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Василий", "Пупкин", "5Б", 2000, 1, 0, 0, "1d 73 4a 5e 00 00 03", 1, 1)
-                    """) # uid - карта школы, кста))))
+                    VALUES("Василий", "Пупкин (шк)", "5Б", 100, 1, 0, 0, "9b cd 2a da", 1, 1)
+                    """) # 04 9a 4c 52 a6 34 80 - карта школы
             
             cur.execute("""
+                    INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
+                    VALUES("Василий", "Пупкин (тр)", "5Б", 100, 1, 0, 0, "04 32 3e 42 85 68 80", 1, 1)
+                    """) # 04 32 3e 42 85 68 80 - тройка
+
+            cur.execute("""
                         INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id) 
-                        VALUES("Михал", "Палыч", "6Ы", 1000, 1, 0, 0, "9b cd 2a da", 0, 0)
-                        """) # uid - карта сбера, кста))))
+                        VALUES("Михал", "Палыч", "6Ы", 1000, 0, 0, 0, "skdjadkajd", 0, 0)
+                        """) # 9b cd 2a da - карта сбера
             
             
             # тест вывода у учителей
@@ -176,7 +181,7 @@ class gameDB:
             cur.execute("""
                         INSERT INTO teachers(firstname, middlename, password, subject_name, balance, nfc_uid) 
                         VALUES("Константин", "Константинович", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
-                        'Государственное предприятие "Я ЗАНИМАЮСЬ ФИГНЁЙ!"', 1337, "04 9a 4c 52 a6 34 80")
+                        'Государственное предприятие "Математический ответник"', 1337, "04 9a 4c 52 a6 34 80")
                         """) # teacherpas hash
 
             con.commit()

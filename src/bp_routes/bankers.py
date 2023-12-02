@@ -35,7 +35,7 @@ def get_person(sub=None, role=None):
 
         role = "players"
         cur.execute("""
-                    SELECT firstname, lastname, grade, balance, tax_paid, is_founder, is_minister, is_minister_paid
+                    SELECT firstname, lastname, grade, balance, tax_paid, is_founder, is_minister, is_minister_paid, company_id
                     FROM players
                     WHERE nfc_uid = ?;
                     """, (uid, ))
@@ -50,6 +50,15 @@ def get_person(sub=None, role=None):
             person = cur.fetchone()
         if not person:
             return "404", 404
+    
+        if person[5]:
+            cur.execute("""
+                        SELECT taxes
+                        FROM companies
+                        WHERE company_id = ?;
+                        """, (person[8], ))
+            company_taxes = cur.fetchone()[0]
+            return jsonify(role=role, person=person, company_taxes=company_taxes)
 
 
     return jsonify(role=role, person=person)
@@ -119,6 +128,7 @@ def transfer_money(sub=None, role=None):
 def get_transfer_player(sub=None, role=None):
     firstname = request.get_json().get("firstname")
     lastname = request.get_json().get("lastname")
+    uid = request.get_json().get("uid")
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -126,8 +136,8 @@ def get_transfer_player(sub=None, role=None):
         cur.execute("""
                     SELECT firstname, lastname, grade, player_id
                     FROM players
-                    WHERE firstname LIKE ? AND lastname LIKE ?;
-                    """, (firstname + '%', lastname + '%', ))
+                    WHERE firstname LIKE ? AND lastname LIKE ? AND nfc_uid != ?;
+                    """, (firstname + '%', lastname + '%', uid, ))
         players = cur.fetchall()
 
     return jsonify(players=players)
