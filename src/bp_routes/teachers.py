@@ -95,7 +95,7 @@ def pay_salary(sub=None, role=None):
         con.commit()
         
 
-    return "200"
+    return jsonify(salary=salary)
     
 
 

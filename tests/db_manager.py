@@ -129,8 +129,8 @@ class gameDB:
             # тест всех функций, связанных с игроком
             cur.execute("""
                     INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Василий", "Пупкин", "5Б", 100, 1, 0, 0, "04 9a 4c 52 a6 34 80", 1, 1)
-                    """) # 04 9a 4c 52 a6 34 80 - карта школы
+                    VALUES("Василий", "Пупкин", "5Б", 100, 1, 0, 0, "1d 73 4a 5e 00 00 03", 1, 1)
+                    """) # 1d 73 4a 5e 00 00 03 - карта школы
             
             
 
