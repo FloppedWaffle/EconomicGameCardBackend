@@ -1,6 +1,6 @@
 import sqlite3
 
-SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проектики/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
+SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проекты/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
 
 class gameDB:
     """Управление базой данных игры"""
@@ -129,36 +129,20 @@ class gameDB:
             # тест всех функций, связанных с игроком
             cur.execute("""
                     INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Василий", "Пупкин (шк)", "5Б", 100, 1, 0, 0, "9b cd 2a da", 1, 1)
+                    VALUES("Василий", "Пупкин", "5Б", 100, 1, 0, 0, "04 9a 4c 52 a6 34 80", 1, 1)
                     """) # 04 9a 4c 52 a6 34 80 - карта школы
             
-            cur.execute("""
-                    INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Василий", "Пупкин (тр)", "5Б", 100, 1, 0, 0, "04 32 3e 42 85 68 80", 1, 1)
-                    """) # 04 32 3e 42 85 68 80 - тройка
+            
 
-            cur.execute("""
-                        INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id) 
-                        VALUES("Михал", "Палыч", "6Ы", 1000, 0, 0, 0, "skdjadkajd", 0, 0)
-                        """) # 9b cd 2a da - карта сбера
-            
-            
             # тест вывода у учителей
-
             cur.execute("""
                 INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id) 
-                VALUES("Терентий", "Пельменьевич", "7Ы", 0, 1, 0, 0, "nfc_test1", 0, 0)
+                VALUES("Терентий", "Первый", "7Ы", 0, 1, 0, 0, "nfc_test1", 0, 0)
                 """)
             cur.execute("""
                     INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Чебурешик", "Лолкекович", "8Г (ШО-2) (фирма)", 0, 0, 0, 0, "nfc_test2", 1, 1)
+                    VALUES("Терентий", "Второй", "8Г (ШО-2) (фирма)", 0, 0, 0, 0, "nfc_test2", 1, 1)
                     """)
-            cur.execute("""
-                INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                VALUES("Чебурешик", "Лолкекович", "8Г (ШО-2) (мин)", 0, 0, 1, 0, "nfc_test3", 0, 0)
-                """)
-            
-
 
             cur.execute("""
                 INSERT INTO players(firstname, lastname, grade, balance, tax_paid, company_id, is_founder, is_minister, is_minister_paid, nfc_uid) 
@@ -168,7 +152,6 @@ class gameDB:
                         INSERT INTO players(firstname, lastname, grade, balance, tax_paid, company_id, is_founder, is_minister, is_minister_paid, nfc_uid) 
                         VALUES("Лёшка", "Петров", "5В", 0, 1, 1, 1, 0, 0, "nfc_test5")
                         """)
-
 
             con.commit()
 
@@ -181,8 +164,9 @@ class gameDB:
             cur.execute("""
                         INSERT INTO teachers(firstname, middlename, password, subject_name, balance, nfc_uid) 
                         VALUES("Константин", "Константинович", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
-                        'Государственное предприятие "Математический ответник"', 1337, "04 9a 4c 52 a6 34 80")
+                        'Государственное предприятие "Математический ответник"', 1337, "04 32 3e 42 85 68 80")
                         """) # teacherpas hash
+                             # 04 32 3e 42 85 68 80 - тройка
 
             con.commit()
 
@@ -194,44 +178,32 @@ class gameDB:
             # 1 фирма (id 1)
             cur.execute("""
                         INSERT INTO companies(password, name, balance, taxes, profit, is_state) 
-                        VALUES("db23bc16ec47a980f2c6b8b4e5e020ee43c76ebea08a6ddcc9c0233b25d3a31e", "Пельмени", 100, 200, 50, 0)
+                        VALUES("db23bc16ec47a980f2c6b8b4e5e020ee43c76ebea08a6ddcc9c0233b25d3a31e", "Пельменная", 100, 200, 50, 0)
                         """) # companypas hash
-            # услуги 1 фирмы
-            for i in range(1, 5):
-                cur.execute(f""" 
-                            INSERT INTO services(company_id, name, quantity, cost)
-                            VALUES(1, "{i} тюлень", 10, 20)
-                            """)
-                cur.execute(f""" 
-                            INSERT INTO services(company_id, name, quantity, cost)
-                            VALUES(1, "{i} камень", 15, 30)
-                            """)
             
-
-
-            # 2 фирма (id 2)
-            cur.execute("""
-                        INSERT INTO companies(password, name, balance, taxes, profit, is_state) 
-                        VALUES("d523822c23dc9deefb35e4de004961eb85e75e41b69fe703aa7c39f0dad239ad", "Тюлени", 0, 0, 126, 0)
-                        """) # companypss hash
-            #её услуги
-            for i in range(1, 5):
-                cur.execute(f""" 
-                            INSERT INTO services(company_id, name, quantity, cost)
-                            VALUES(2, "{i} пельменя", 10, 15)
-                            """)
-                cur.execute(f""" 
-                            INSERT INTO services(company_id, name, quantity, cost) 
-                            VALUES(2, "{i} тюленя", 20, 30)
-                            """)
+            # услуги 1 фирмы
+            cur.execute(f""" 
+                        INSERT INTO services(company_id, name, quantity, cost)
+                        VALUES(1, "1 тюлень", 10, 20)
+                        """)
+            cur.execute(f""" 
+                        INSERT INTO services(company_id, name, quantity, cost)
+                        VALUES(1, "1 олень", 15, 30)
+                        """)
+            cur.execute(f""" 
+                        INSERT INTO services(company_id, name, quantity, cost)
+                        VALUES(1, "1 пельмень", 15, 30)
+                        """)
 
 
 
-                # сосисочная (столовка)
+            # сосисочная (столовка)
             cur.execute("""
                         INSERT INTO companies(company_id, password, name, balance, taxes, profit, is_state) 
-                        VALUES(50, "51e8e4c4d6bc571330275750d9b035f182d531fc0398a3ca56114e1acdcfa153", "СосиСочноЯ", 0, 0, 126, 1)
+                        VALUES(50, "51e8e4c4d6bc571330275750d9b035f182d531fc0398a3ca56114e1acdcfa153", "Сосисочная", 0, 0, 126, 1)
                         """) # sosisochno hash
+            
+            # услуги сосисочной
             for i in range(1, 11):
                 cur.execute(f""" 
                             INSERT INTO services(company_id, name, quantity, cost)
@@ -241,7 +213,6 @@ class gameDB:
                             INSERT INTO services(company_id, name, quantity, cost) 
                             VALUES(50, "{i} бутербродов", 20, 30)
                             """)
-
 
             con.commit()
 
