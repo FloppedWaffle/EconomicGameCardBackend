@@ -50,15 +50,15 @@ def get_person(sub=None, role=None):
             person = cur.fetchone()
         if not person:
             return "404", 404
-    
-        if person[5]:
-            cur.execute("""
-                        SELECT taxes
-                        FROM companies
-                        WHERE company_id = ?;
-                        """, (person[8], ))
-            company_taxes = cur.fetchone()[0]
-            return jsonify(role=role, person=person, company_taxes=company_taxes)
+
+        if role == "players" and person[5]:
+                cur.execute("""
+                            SELECT taxes
+                            FROM companies
+                            WHERE company_id = ?;
+                            """, (person[8], ))
+                company_taxes = cur.fetchone()[0]
+                return jsonify(role=role, person=person, company_taxes=company_taxes)
 
 
     return jsonify(role=role, person=person)

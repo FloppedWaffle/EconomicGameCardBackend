@@ -68,34 +68,30 @@ def pay_salary(sub=None, role=None):
 
         if is_card:
             cur.execute("""
-                        SELECT tax_paid 
-                        FROM players 
+                        SELECT player_id
+                        FROM players
                         WHERE nfc_uid = ?;
                         """, (uid, ))
-            tax_paid = cur.fetchone()[0]
-            if not tax_paid:
-                salary -= salary * 0.1
-            
-            cur.execute("""
-                        UPDATE players 
-                        SET balance = balance + ?, tax_paid = 1 
-                        WHERE nfc_uid = ?;
-                        """, (salary, uid, ))          
-        else:
-            cur.execute("""
-                        SELECT tax_paid 
-                        FROM players 
-                        WHERE player_id = ?;
-                        """, (player_id, ))
-            tax_paid = cur.fetchone()[0]
-            if not tax_paid:
-                salary -= salary * 0.1
-            
-            cur.execute("""
-                        UPDATE players 
-                        SET balance = balance + ?, tax_paid = 1 
-                        WHERE player_id = ?;
-                        """, (salary, player_id, ))
+            player = cur.fetchone()
+            if not player:
+                return "404", 404
+            player_id = player[0]
+
+
+        cur.execute("""
+                    SELECT tax_paid 
+                    FROM players 
+                    WHERE player_id = ?;
+                    """, (player_id, ))
+        tax_paid = cur.fetchone()[0]
+        if not tax_paid:
+            salary -= salary * 0.1
+        
+        cur.execute("""
+                    UPDATE players 
+                    SET balance = balance + ?, tax_paid = 1 
+                    WHERE player_id = ?;
+                    """, (salary, player_id, ))
         con.commit()
         
 
@@ -118,16 +114,21 @@ def pay_student_taxes(sub=None, role=None):
 
         if is_card:
             cur.execute("""
-                        UPDATE players 
-                        SET tax_paid = 1 
+                        SELECT player_id
+                        FROM players
                         WHERE nfc_uid = ?;
                         """, (uid, ))
-        else:
-            cur.execute("""
-                        UPDATE players 
-                        SET tax_paid = 1 
-                        WHERE player_id = ?;
-                        """, (player_id, ))
+            player = cur.fetchone()
+            if not player:
+                return "404", 404
+            player_id = player[0]
+
+
+        cur.execute("""
+                    UPDATE players 
+                    SET tax_paid = 1 
+                    WHERE player_id = ?;
+                    """, (player_id, ))
         con.commit()
 
     return "200"

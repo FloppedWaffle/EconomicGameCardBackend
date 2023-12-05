@@ -11,7 +11,7 @@ LOG_FILE = "history.log"
 secret = "waffle" # TODO: перенести в перменную среды на системе
 HASH_ALGO = "HS256"
 
-SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проектики/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
+SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проекты/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
 if platform.system() == "Linux":
     SQLITE_PATH = "/root/EconomicGameCardBackend/data/payments.sqlite"
 

@@ -164,7 +164,7 @@ class gameDB:
             cur.execute("""
                         INSERT INTO teachers(firstname, middlename, password, subject_name, balance, nfc_uid) 
                         VALUES("Константин", "Константинович", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
-                        'Государственное предприятие "Математический ответник"', 1337, "04 32 3e 42 85 68 80")
+                        'Государственное предприятие "Математический ответник"', 125, "04 32 3e 42 85 68 80")
                         """) # teacherpas hash
                              # 04 32 3e 42 85 68 80 - тройка
 
