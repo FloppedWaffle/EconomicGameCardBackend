@@ -70,7 +70,7 @@ def pay_salary(sub=None, role=None):
             cur.execute("""
                         SELECT player_id
                         FROM players
-                        WHERE nfc_uid = ?;
+                        WHERE nfc_uid = ?  AND is_minister = 1;
                         """, (uid, ))
             player = cur.fetchone()
             if not player:
@@ -116,7 +116,7 @@ def pay_student_taxes(sub=None, role=None):
             cur.execute("""
                         SELECT player_id
                         FROM players
-                        WHERE nfc_uid = ?;
+                        WHERE nfc_uid = ? AND is_minister = 1;
                         """, (uid, ))
             player = cur.fetchone()
             if not player:

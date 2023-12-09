@@ -1,6 +1,9 @@
 import sqlite3
+import platform
 
 SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проекты/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
+if platform.system() == "Linux":
+    SQLITE_PATH = "/root/EconomicGameCardBackend/data/payments.sqlite"
 
 class gameDB:
     """Управление базой данных игры"""
@@ -129,7 +132,7 @@ class gameDB:
             # тест всех функций, связанных с игроком
             cur.execute("""
                     INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                    VALUES("Василий", "Пупкин", "5Б", 100, 1, 0, 0, "1d 73 4a 5e 00 00 03", 1, 1)
+                    VALUES("Василий", "Пупкин", "5Б", 150, 0, 0, 0, "1d 73 4a 5e 00 00 03", 1, 1)
                     """) # 1d 73 4a 5e 00 00 03 - карта школы
             
             
@@ -163,7 +166,7 @@ class gameDB:
             # учителя
             cur.execute("""
                         INSERT INTO teachers(firstname, middlename, password, subject_name, balance, nfc_uid) 
-                        VALUES("Константин", "Константинович", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
+                        VALUES("Константин", "Константинович (тр)", "61e521e174982c310b25e3ff93616b76459b580fdd455305e90f5a808fb2d65c",
                         'Государственное предприятие "Математический ответник"', 125, "04 32 3e 42 85 68 80")
                         """) # teacherpas hash
                              # 04 32 3e 42 85 68 80 - тройка
@@ -200,7 +203,7 @@ class gameDB:
             # сосисочная (столовка)
             cur.execute("""
                         INSERT INTO companies(company_id, password, name, balance, taxes, profit, is_state) 
-                        VALUES(50, "51e8e4c4d6bc571330275750d9b035f182d531fc0398a3ca56114e1acdcfa153", "Сосисочная", 0, 0, 126, 1)
+                        VALUES(50, "51e8e4c4d6bc571330275750d9b035f182d531fc0398a3ca56114e1acdcfa153", "Сосисочная", 0, 0, 125, 1)
                         """) # sosisochno hash
             
             # услуги сосисочной
@@ -238,11 +241,11 @@ def pass_period():
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
 
-        # обнуляем налоги
+        # обнуляем налоги игрокам (кроме министров, владельцев фирмы и её работников)
         cur.execute("""
                     UPDATE players
                     SET tax_paid = 0
-                    WHERE is_founder = 0 AND is_minister = 0 AND company_id = 0;
+                    WHERE is_minister = 0 AND is_founder = 0 AND company_id = 0;
                     """)
         
         # обнуляем статус выдачи зарплаты министрам
@@ -252,7 +255,7 @@ def pass_period():
                     WHERE is_minister = 1;
                     """)
         
-        # переносим десятую часть дохода на налоги, а доход обнуляем
+        # переносим десятую часть дохода на налоги, а доход обнуляем у частных фирм
         cur.execute("""
                     UPDATE companies
                     SET taxes = taxes + profit * 0.1, profit = 0
