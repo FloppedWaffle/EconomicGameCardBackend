@@ -83,6 +83,14 @@ class gameDB:
                             password VARCHAR(64) NOT NULL UNIQUE)
                             """)
 
+    def create_table_atm(self):
+        with self.con:
+            self.cur.execute("""
+                            CREATE TABLE IF NOT EXISTS atm(
+                            atm_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            password VARCHAR(64) NOT NULL UNIQUE)
+                            """)
+
 
 
     def erase_tables_all(self):
@@ -92,6 +100,7 @@ class gameDB:
             self.cur.execute("""DROP TABLE IF EXISTS companies;""")
             self.cur.execute("""DROP TABLE IF EXISTS services;""")
             self.cur.execute("""DROP TABLE IF EXISTS bankers;""")
+            self.cur.execute("""DROP TABLE IF EXISTS atm;""")
             self.con.commit()
     
 
@@ -122,6 +131,11 @@ class gameDB:
     def erase_table_bankers(self):
         with self.con:
             self.cur.execute("""DROP TABLE IF EXISTS bankers;""")
+            self.con.commit()
+
+    def erase_table_atm(self):
+        with self.con:
+            self.cur.execute("""DROP TABLE IF EXISTS atm;""")
             self.con.commit()
 
 
@@ -231,6 +245,16 @@ class gameDB:
             con.commit()
 
 
+    def add_atm_in_db(self):
+        with sqlite3.connect(SQLITE_PATH) as con:
+            cur = con.cursor()
+            # банкоматы
+            cur.execute("""
+                    INSERT INTO atm(password) 
+                    VALUES("3b908f081bb7bdfb8878bfd87892f798aae107fc9d18bdee713a50a72ad1bbbf")
+                    """)
+            con.commit()
+
 
 def pass_period():
     # TODO: Каждый час, каждый период нужно переносить профит (домноженный на 0.1) на налоги у чатсных фирм
@@ -276,15 +300,18 @@ if __name__ == "__main__":
         db_mgr.erase_table_companies()
         db_mgr.erase_table_services()
         db_mgr.erase_table_bankers()
+        db_mgr.erase_table_atm()
 
         db_mgr.create_table_players()
         db_mgr.create_table_teachers()
         db_mgr.create_table_companies()
         db_mgr.create_table_services()
         db_mgr.create_table_bankers()
+        db_mgr.create_table_atm()
 
 
         db_mgr.add_players_in_db()
         db_mgr.add_teachers_in_db()
         db_mgr.add_companies_and_services_in_db()
         db_mgr.add_bankers_in_db()
+        db_mgr.add_atm_in_db()

@@ -2,24 +2,23 @@ from flask import Blueprint, request, jsonify
 import sqlite3
 from .func_utils import check_authorization, logger, SQLITE_PATH
 
-
-bankers_bp = Blueprint("bankers", __name__)
-
+atm_bp = Blueprint("atm", __name__)
 
 
-@bankers_bp.route("/banker", methods=["GET"])
+
+@atm_bp.route("/atm", methods=["GET"])
 @check_authorization
-def get_banker(sub=None, role=None):
+def get_atm(sub=None, role=None):
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
 
         cur.execute("""
-                    SELECT banker_id
-                    FROM bankers
+                    SELECT atm_id
+                    FROM atm
                     WHERE password = ?;
                     """, (sub, ))
-        banker = cur.fetchone()
-        if not banker:
+        atm = cur.fetchone()
+        if not atm:
             return "404", 404
         
 
@@ -27,7 +26,7 @@ def get_banker(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/get_person", methods=["POST"])
+@atm_bp.route("/atm/get_person", methods=["POST"])
 @check_authorization
 def get_person(sub=None, role=None):
     uid = request.get_json().get("uid")
@@ -67,65 +66,7 @@ def get_person(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/transfer_money", methods=["POST"])
-@check_authorization
-def transfer_money(sub=None, role=None):
-    uid = request.get_json().get("uid")
-    amount = request.get_json().get("amount")
-    transfer_action = request.get_json().get("transfer_action")
-
-    with sqlite3.connect(SQLITE_PATH) as con:
-        cur = con.cursor()
-
-        person_table = "players"
-        cur.execute("""
-                    SELECT balance
-                    FROM players
-                    WHERE nfc_uid = ?;
-                    """, (uid, ))
-        person = cur.fetchone()
-        if not person:
-            person_table = "teachers"
-            cur.execute("""
-                        SELECT balance
-                        FROM teachers
-                        WHERE nfc_uid = ?;
-                        """, (uid, ))
-            person = cur.fetchone()
-            if not person:
-                 return "404", 404
-
-
-        cur.execute(f"""
-                    SELECT balance
-                    FROM {person_table}
-                    WHERE nfc_uid = ?;
-                    """, (uid, ))
-        balance = cur.fetchone()[0]
-        if (amount > balance and transfer_action == "withdraw"):
-            return "400", 400
-        
-
-        if (transfer_action == "deposit"):
-            cur.execute(f"""
-                        UPDATE {person_table}
-                        SET balance = balance + ?
-                        WHERE nfc_uid = ?;
-                        """, (amount, uid, ))
-        elif (transfer_action == "withdraw"):
-                        cur.execute(f"""
-                        UPDATE {person_table}
-                        SET balance = balance - ?
-                        WHERE nfc_uid = ?;
-                        """, (amount, uid, ))
-        
-        con.commit()
-    
-    return "200"
-
-
-
-@bankers_bp.route("/banker/get_transfer_player", methods=["POST"])
+@atm_bp.route("/atm/get_transfer_player", methods=["POST"])
 @check_authorization
 def get_transfer_player(sub=None, role=None):
     firstname = request.get_json().get("firstname")
@@ -146,7 +87,7 @@ def get_transfer_player(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/transfer_player_money", methods=["POST"])
+@atm_bp.route("/atm/transfer_player_money", methods=["POST"])
 @check_authorization
 def transfer_player_money(sub=None, role=None):
     uid = request.get_json().get("uid")
@@ -186,11 +127,10 @@ def transfer_player_money(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/pay_player_taxes", methods=["POST"])
+@atm_bp.route("/atm/pay_player_taxes", methods=["POST"])
 @check_authorization
 def pay_player_taxes(sub=None, role=None):
     uid = request.get_json().get("uid")
-    is_card = bool(request.get_json().get("is_card"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -210,12 +150,11 @@ def pay_player_taxes(sub=None, role=None):
                     WHERE nfc_uid = ?;
                     """, (uid, ))
         
-        if is_card:
-            cur.execute("""
-                        UPDATE players
-                        SET balance = balance - ?
-                        WHERE nfc_uid = ?;
-                        """, (10, uid, )) # TODO: ВРЕМЕННЫЙ НАЛОГ, ПОТОМ В КОНФИГ ДОБАВИТЬ НУЖНО НОРМАЛЬНО
+        cur.execute("""
+                    UPDATE players
+                    SET balance = balance - ?
+                    WHERE nfc_uid = ?;
+                    """, (10, uid, )) # TODO: ВРЕМЕННЫЙ НАЛОГ, ПОТОМ В КОНФИГ ДОБАВИТЬ НУЖНО НОРМАЛЬНО
         
         con.commit()
 
@@ -223,12 +162,11 @@ def pay_player_taxes(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/pay_company_taxes", methods=["POST"])
+@atm_bp.route("/atm/pay_company_taxes", methods=["POST"])
 @check_authorization
 def pay_company_taxes(sub=None, role=None):
     uid = request.get_json().get("uid")
     tax_amount = request.get_json().get("tax_amount")
-    is_card = bool(request.get_json().get("is_card"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -242,10 +180,9 @@ def pay_company_taxes(sub=None, role=None):
         if not player:
             return jsonify(error="founder_not_found"), 404
         company_id = player[0]
-        if is_card:
-            balance = player[1]
-            if balance < tax_amount:
-                return "400", 400
+        balance = player[1]
+        if balance < tax_amount:
+            return "400", 400
     
         cur.execute("""
                     SELECT taxes
@@ -266,12 +203,12 @@ def pay_company_taxes(sub=None, role=None):
                     SET taxes = taxes - ?
                     WHERE company_id = ?;
                     """, (tax_amount, company_id, ))
-        if is_card:
-            cur.execute("""
-                        UPDATE players
-                        SET balance = balance - ?
-                        WHERE nfc_uid = ?;
-                        """, (tax_amount, uid, ))
+        
+        cur.execute("""
+                    UPDATE players
+                    SET balance = balance - ?
+                    WHERE nfc_uid = ?;
+                    """, (tax_amount, uid, ))
             
         con.commit()
 
@@ -279,11 +216,10 @@ def pay_company_taxes(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/pay_minister_salary", methods=["POST"])
+@atm_bp.route("/atm/pay_minister_salary", methods=["POST"])
 @check_authorization
 def pay_minister_salary(sub=None, role=None):
     uid = request.get_json().get("uid")
-    is_card = bool(request.get_json().get("is_card"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -301,12 +237,11 @@ def pay_minister_salary(sub=None, role=None):
         if is_minister_paid:
             return "400", 400
         
-        if is_card:
-            cur.execute("""
-                        UPDATE players
-                        SET balance = balance + ?
-                        WHERE nfc_uid = ?;
-                        """, (125, uid, )) # TODO: ВРЕМЕННАЯ ЗАРПЛАТА, ПОТОМ В КОНФИГ ДОБАВИТЬ НУЖНО НОРМАЛЬНО
+        cur.execute("""
+                    UPDATE players
+                    SET balance = balance + ?
+                    WHERE nfc_uid = ?;
+                    """, (125, uid, )) # TODO: ВРЕМЕННАЯ ЗАРПЛАТА, ПОТОМ В КОНФИГ ДОБАВИТЬ НУЖНО НОРМАЛЬНО
 
         cur.execute("""
                     UPDATE players
@@ -315,5 +250,17 @@ def pay_minister_salary(sub=None, role=None):
                     """, (uid, ))
         
         con.commit()
+
+    return "200"
+
+
+
+@atm_bp.route("/atm/exit", methods=["POST"])
+@check_authorization
+def atm_exit(sub=None, role=None):
+    exit_password = request.get_json().get("exit_password")
+
+    if exit_password != sub:
+        return "400", 400
 
     return "200"

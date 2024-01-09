@@ -1,7 +1,6 @@
 import sqlite3
 from functools import wraps
-from flask import request, jsonify
-import time
+from flask import request
 from datetime import datetime, timedelta, timezone
 import jwt
 import logging
@@ -23,11 +22,12 @@ def get_auth_token(password: str, role: str) -> str:
             "sub": password,
             "role": role,
             "iat": current_time.timestamp(),
-            "exp": (current_time + timedelta(hours=12)).timestamp()
+            "exp": (current_time + timedelta(hours=8)).timestamp()
         },
         secret,
         algorithm=HASH_ALGO)
     return token
+
 
 def check_authorization(f):
     @wraps(f)
@@ -45,6 +45,8 @@ def check_authorization(f):
 
     return wrapper
 
+
+
 logging.basicConfig(
     filename=LOG_FILE,
     filemode='a',
@@ -57,7 +59,7 @@ logger = logging.getLogger('rest_logger')
 
 
 def pass_period():
-    # TODO: Каждый час, каждый период нужно переносить профит (домноженный на 0.1) на налоги у чатсных фирм
+    # TODO: Каждый час, каждый период нужно переносить профит (домноженный на 0.1) на налоги у частных фирм
     # TODO: Каждый час, каждый период нужно обнулять налоги всем игрокам, кроме гос. министров, владельцев и работников фирм
     # TODO: Каждый час, каждый период нужно обнулять is_minister_paid, чтобы министры могли брать зарплату
 
