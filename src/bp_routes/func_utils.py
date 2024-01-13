@@ -34,14 +34,14 @@ def check_authorization(f):
     def wrapper(*args, **kwargs):
         token = request.headers.get('Authorization')
         if not token:
-            return 401
+            return "401", 401
         try:
-            payload = jwt.decode(token, secret, algorithms=["HS256"])                    
+            payload = jwt.decode(token, secret, algorithms=["HS256"])
         except jwt.exceptions.PyJWTError as e:
-            logger.warning(str(e) + " (ОШИБКА АВТОРИЗАЦИИ)")
-            return 401
-        
-        return f(*args, sub=payload['sub'], role=payload['role'], **kwargs)
+            logger.warning(str(e) + " (ошибка авторизации токена)")
+            return "401", 401
+
+        return f(*args, sub=payload["sub"], role=payload["role"], **kwargs)
 
     return wrapper
 

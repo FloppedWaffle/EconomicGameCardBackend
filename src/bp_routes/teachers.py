@@ -6,7 +6,7 @@ teachers_bp = Blueprint("teachers", __name__)
 
 
 
-@teachers_bp.route("/teacher", methods=["GET"])
+@teachers_bp.route("/teachers", methods=["GET"])
 @check_authorization
 def get_teacher_info(sub=None, role=None):
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -30,7 +30,7 @@ def get_teacher_info(sub=None, role=None):
 
 
 
-@teachers_bp.route("/teacher/get_students", methods=["POST"])
+@teachers_bp.route("/teachers/get_students", methods=["POST"])
 @check_authorization
 def get_students(sub=None, role=None):
     firstname = request.get_json().get("firstname")
@@ -52,7 +52,7 @@ def get_students(sub=None, role=None):
 
 
 
-@teachers_bp.route("/teacher/pay_student_salary", methods=["POST"])
+@teachers_bp.route("/teachers/pay_student_salary", methods=["POST"])
 @check_authorization
 def pay_salary(sub=None, role=None):
     salary = request.get_json().get("salary")
@@ -99,7 +99,7 @@ def pay_salary(sub=None, role=None):
     
 
 
-@teachers_bp.route("/teacher/pay_student_taxes", methods=["POST"])
+@teachers_bp.route("/teachers/pay_student_taxes", methods=["POST"])
 @check_authorization
 def pay_student_taxes(sub=None, role=None):
     is_card = bool(request.get_json().get("is_card"))

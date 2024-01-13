@@ -8,7 +8,7 @@ TAX = 0.1
 companies_bp = Blueprint("companies", __name__)
 
 
-@companies_bp.route("/company", methods=["GET"])
+@companies_bp.route("/companies", methods=["GET"])
 @check_authorization
 def get_company(sub=None, role=None):
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -47,7 +47,7 @@ def get_company(sub=None, role=None):
 
 
 
-@companies_bp.route("/company/get_founders", methods=["POST"])
+@companies_bp.route("/companies/get_founders", methods=["POST"])
 @check_authorization
 def get_founder(sub=None, role=None):
     firstname = request.get_json().get("firstname")
@@ -72,7 +72,7 @@ def get_founder(sub=None, role=None):
     
 
 
-@companies_bp.route("/company/pay_founder", methods=["POST"])
+@companies_bp.route("/companies/pay_founder", methods=["POST"])
 @check_authorization
 def pay_founder(sub=None, role=None):
     player_id = request.get_json().get("player_id")
@@ -116,7 +116,7 @@ def pay_founder(sub=None, role=None):
 
 
 
-@companies_bp.route("/company/pay_services", methods=["POST"])
+@companies_bp.route("/companies/pay_services", methods=["POST"])
 @check_authorization
 def pay_services(sub=None, role=None):
     uid = request.get_json().get("uid")

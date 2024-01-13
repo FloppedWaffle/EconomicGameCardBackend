@@ -24,7 +24,7 @@ def authorize_user():
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
-        role = "teacher"
+        role = "teachers"
 
         cur.execute("""
                     SELECT teacher_id 
@@ -34,7 +34,7 @@ def authorize_user():
         user = cur.fetchone()
 
         if not user:
-            role = "company"
+            role = "companies"
 
             cur.execute("""
                         SELECT company_id 
@@ -44,7 +44,7 @@ def authorize_user():
             user = cur.fetchone()
 
         if not user:
-            role = "banker"
+            role = "bankers"
 
             cur.execute("""
                         SELECT banker_id 

@@ -7,7 +7,7 @@ bankers_bp = Blueprint("bankers", __name__)
 
 
 
-@bankers_bp.route("/banker", methods=["GET"])
+@bankers_bp.route("/bankers", methods=["GET"])
 @check_authorization
 def get_banker(sub=None, role=None):
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -27,7 +27,7 @@ def get_banker(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/get_person", methods=["POST"])
+@bankers_bp.route("/bankers/get_person", methods=["POST"])
 @check_authorization
 def get_person(sub=None, role=None):
     uid = request.get_json().get("uid")
@@ -67,7 +67,7 @@ def get_person(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/transfer_money", methods=["POST"])
+@bankers_bp.route("/bankers/transfer_money", methods=["POST"])
 @check_authorization
 def transfer_money(sub=None, role=None):
     uid = request.get_json().get("uid")
@@ -125,7 +125,7 @@ def transfer_money(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/get_transfer_player", methods=["POST"])
+@bankers_bp.route("/bankers/get_transfer_player", methods=["POST"])
 @check_authorization
 def get_transfer_player(sub=None, role=None):
     firstname = request.get_json().get("firstname")
@@ -146,7 +146,7 @@ def get_transfer_player(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/transfer_player_money", methods=["POST"])
+@bankers_bp.route("/bankers/transfer_player_money", methods=["POST"])
 @check_authorization
 def transfer_player_money(sub=None, role=None):
     uid = request.get_json().get("uid")
@@ -186,7 +186,7 @@ def transfer_player_money(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/pay_player_taxes", methods=["POST"])
+@bankers_bp.route("/bankers/pay_player_taxes", methods=["POST"])
 @check_authorization
 def pay_player_taxes(sub=None, role=None):
     uid = request.get_json().get("uid")
@@ -223,7 +223,7 @@ def pay_player_taxes(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/pay_company_taxes", methods=["POST"])
+@bankers_bp.route("/bankers/pay_company_taxes", methods=["POST"])
 @check_authorization
 def pay_company_taxes(sub=None, role=None):
     uid = request.get_json().get("uid")
@@ -279,7 +279,7 @@ def pay_company_taxes(sub=None, role=None):
 
 
 
-@bankers_bp.route("/banker/pay_minister_salary", methods=["POST"])
+@bankers_bp.route("/bankers/pay_minister_salary", methods=["POST"])
 @check_authorization
 def pay_minister_salary(sub=None, role=None):
     uid = request.get_json().get("uid")
