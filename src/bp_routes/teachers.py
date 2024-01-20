@@ -1,3 +1,4 @@
+from math import ceil
 from flask import Blueprint, request, jsonify
 import sqlite3
 from .func_utils import check_authorization, logger, SQLITE_PATH
@@ -44,7 +45,7 @@ def get_students(sub=None, role=None):
                     SELECT firstname, lastname, grade, player_id 
                     FROM players 
                     WHERE firstname LIKE ? AND lastname LIKE ? AND is_minister = 0;
-                    """, (firstname + "%", lastname + "%",))
+                    """, (firstname + "%", lastname + "%", ))
         players = cur.fetchall()
         
 
@@ -56,27 +57,11 @@ def get_students(sub=None, role=None):
 @check_authorization
 def pay_salary(sub=None, role=None):
     salary = request.get_json().get("salary")
-    is_card = bool(request.get_json().get("is_card"))
-    if is_card:
-        uid = request.get_json().get("uid")
-    else:
-        player_id = request.get_json().get("player_id")
+    player_id = request.get_json().get("player_id")
 
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor();
-
-        if is_card:
-            cur.execute("""
-                        SELECT player_id
-                        FROM players
-                        WHERE nfc_uid = ?  AND is_minister = 1;
-                        """, (uid, ))
-            player = cur.fetchone()
-            if not player:
-                return "404", 404
-            player_id = player[0]
-
 
         cur.execute("""
                     SELECT tax_paid 
@@ -86,12 +71,14 @@ def pay_salary(sub=None, role=None):
         tax_paid = cur.fetchone()[0]
         if not tax_paid:
             salary -= salary * 0.1
+            salary = ceil(salary)
         
         cur.execute("""
                     UPDATE players 
-                    SET balance = balance + ?, tax_paid = 1 
+                    SET balance = balance + ?, tax_paid = 1
                     WHERE player_id = ?;
                     """, (salary, player_id, ))
+        
         con.commit()
         
 
@@ -129,6 +116,7 @@ def pay_student_taxes(sub=None, role=None):
                     SET tax_paid = 1 
                     WHERE player_id = ?;
                     """, (player_id, ))
+        
         con.commit()
 
     return "200"

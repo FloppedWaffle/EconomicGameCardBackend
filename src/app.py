@@ -6,16 +6,16 @@ from bp_routes.teachers import teachers_bp
 from bp_routes.companies import companies_bp
 from bp_routes.bankers import bankers_bp
 from bp_routes.atm import atm_bp
-from bp_routes.web import web_bp
+from bp_routes.admin import admin_bp
 from bp_routes.func_utils import SQLITE_PATH, get_auth_token, logger
 
 
-app = Flask(__name__, template_folder='html')
+app = Flask(__name__)
 app.register_blueprint(teachers_bp)
 app.register_blueprint(companies_bp)
 app.register_blueprint(bankers_bp)
 app.register_blueprint(atm_bp)
-app.register_blueprint(web_bp)
+app.register_blueprint(admin_bp)
 
 
 @app.route('/auth', methods=['POST'])
