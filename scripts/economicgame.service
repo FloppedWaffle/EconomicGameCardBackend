@@ -1,0 +1,18 @@
+# systemd service config
+# move to /etc/systemd/system/
+
+[Unit]
+Description=EconomicGame
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/EconomicGameCardBackend/src
+ExecStart=/root/EconomicGameCardBackend/venv/bin/gunicorn -w 2 -b 0.0.0.0:5000 --chdir /root/EconomicGameCardBackend/src app:app
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=economicgame
+
+[Install]
+WantedBy=multi-user.target
