@@ -2,6 +2,9 @@ import sqlite3
 import sys
 from flask import Flask, jsonify, request
 
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
 from bp_routes.teachers import teachers_bp
 from bp_routes.companies import companies_bp
 from bp_routes.bankers import bankers_bp
@@ -16,6 +19,15 @@ app.register_blueprint(companies_bp)
 app.register_blueprint(bankers_bp)
 app.register_blueprint(atm_bp)
 app.register_blueprint(admin_bp)
+
+limiter = Limiter(
+        get_remote_address,
+        app=app,
+        default_limits=["5 per 5 seconds"],
+        storage_uri="memory://",)
+
+
+
 
 
 @app.route('/auth', methods=['POST'])
@@ -64,7 +76,7 @@ def authorize_user():
             user = cur.fetchone()
 
         if not user:
-            return "401", 401
+            return "400", 400
 
     token = get_auth_token(password, role)
     if sys.version_info.minor < 10:

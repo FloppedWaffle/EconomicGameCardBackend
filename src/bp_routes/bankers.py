@@ -70,9 +70,9 @@ def get_person(sub=None, role=None):
 @bankers_bp.route("/bankers/transfer_money", methods=["POST"])
 @check_authorization
 def transfer_money(sub=None, role=None):
-    uid = request.get_json().get("uid")
-    amount = request.get_json().get("amount")
-    transfer_action = request.get_json().get("transfer_action")
+    uid = str(request.get_json().get("uid"))
+    amount = int(request.get_json().get("amount"))
+    transfer_action = str(request.get_json().get("transfer_action"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -92,8 +92,6 @@ def transfer_money(sub=None, role=None):
                         WHERE nfc_uid = ?;
                         """, (uid, ))
             person = cur.fetchone()
-            if not person:
-                 return "404", 404
 
 
         cur.execute(f"""
@@ -102,17 +100,17 @@ def transfer_money(sub=None, role=None):
                     WHERE nfc_uid = ?;
                     """, (uid, ))
         balance = cur.fetchone()[0]
-        if (amount > balance and transfer_action == "withdraw"):
+        if amount > balance and transfer_action == "withdraw":
             return "400", 400
         
 
-        if (transfer_action == "deposit"):
+        if transfer_action == "deposit":
             cur.execute(f"""
                         UPDATE {person_table}
                         SET balance = balance + ?
                         WHERE nfc_uid = ?;
                         """, (amount, uid, ))
-        elif (transfer_action == "withdraw"):
+        elif transfer_action == "withdraw":
                         cur.execute(f"""
                         UPDATE {person_table}
                         SET balance = balance - ?
@@ -128,9 +126,9 @@ def transfer_money(sub=None, role=None):
 @bankers_bp.route("/bankers/get_transfer_player", methods=["POST"])
 @check_authorization
 def get_transfer_player(sub=None, role=None):
-    firstname = request.get_json().get("firstname")
-    lastname = request.get_json().get("lastname")
-    uid = request.get_json().get("uid")
+    firstname = str(request.get_json().get("firstname"))
+    lastname = str(request.get_json().get("lastname"))
+    uid = str(request.get_json().get("uid"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -149,15 +147,12 @@ def get_transfer_player(sub=None, role=None):
 @bankers_bp.route("/bankers/transfer_player_money", methods=["POST"])
 @check_authorization
 def transfer_player_money(sub=None, role=None):
-    uid = request.get_json().get("uid")
-    player_id = request.get_json().get("player_id")
-    amount = request.get_json().get("amount")
+    uid = str(request.get_json().get("uid"))
+    player_id = int(request.get_json().get("player_id"))
+    amount = int(request.get_json().get("amount"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
-
-        if amount < 1:
-            return "400", 400
         
         cur.execute("""
                     SELECT balance
@@ -189,7 +184,7 @@ def transfer_player_money(sub=None, role=None):
 @bankers_bp.route("/bankers/pay_player_taxes", methods=["POST"])
 @check_authorization
 def pay_player_taxes(sub=None, role=None):
-    uid = request.get_json().get("uid")
+    uid = str(request.get_json().get("uid"))
     is_card = bool(request.get_json().get("is_card"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -200,7 +195,7 @@ def pay_player_taxes(sub=None, role=None):
                     FROM players
                     WHERE nfc_uid = ?;
                     """, (uid, ))
-        tax_paid = cur.fetchone()[0]
+        tax_paid = bool(cur.fetchone()[0])
         if tax_paid:
             return "400", 400
 
@@ -226,8 +221,8 @@ def pay_player_taxes(sub=None, role=None):
 @bankers_bp.route("/bankers/pay_company_taxes", methods=["POST"])
 @check_authorization
 def pay_company_taxes(sub=None, role=None):
-    uid = request.get_json().get("uid")
-    tax_amount = request.get_json().get("tax_amount")
+    uid = str(request.get_json().get("uid"))
+    tax_amount = int(request.get_json().get("tax_amount"))
     is_card = bool(request.get_json().get("is_card"))
 
     with sqlite3.connect(SQLITE_PATH) as con:

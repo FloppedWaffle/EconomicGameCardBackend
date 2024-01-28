@@ -50,8 +50,8 @@ def get_company(sub=None, role=None):
 @companies_bp.route("/companies/get_founders", methods=["POST"])
 @check_authorization
 def get_founder(sub=None, role=None):
-    firstname = request.get_json().get("firstname")
-    lastname = request.get_json().get("lastname")
+    firstname = str(request.get_json().get("firstname"))
+    lastname = str(request.get_json().get("lastname"))
     
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -75,35 +75,25 @@ def get_founder(sub=None, role=None):
 @companies_bp.route("/companies/pay_founder", methods=["POST"])
 @check_authorization
 def pay_founder(sub=None, role=None):
-    player_id = request.get_json().get("player_id")
-    withdraw = request.get_json().get("withdraw")
+    player_id = int(request.get_json().get("player_id"))
+    withdraw = int(request.get_json().get("withdraw"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
 
         cur.execute("""
-                    SELECT company_id 
-                    FROM players 
-                    WHERE player_id = ?;
-                    """, (player_id, ))
-        company_id = cur.fetchone()
-        if not company_id:
-            return "404", 404
-        company_id = company_id[0]
-
-        cur.execute("""
                     SELECT balance FROM companies 
-                    WHERE company_id = ?;
-                    """, (company_id, ))
+                    WHERE password = ?;
+                    """, (sub, ))
         balance = cur.fetchone()[0]
-        if balance < withdraw or withdraw < 1:
+        if balance < withdraw:
             return "400", 400
 
         cur.execute("""
                     UPDATE companies 
                     SET balance = balance - ? 
-                    WHERE company_id = ?
-                    """, (withdraw, company_id, ))
+                    WHERE password = ?
+                    """, (withdraw, sub, ))
         cur.execute("""
                     UPDATE players 
                     SET balance = balance + ? 
@@ -119,8 +109,8 @@ def pay_founder(sub=None, role=None):
 @companies_bp.route("/companies/pay_services", methods=["POST"])
 @check_authorization
 def pay_services(sub=None, role=None):
-    uid = request.get_json().get("uid")
-    services = request.get_json().get("services")
+    uid = str(request.get_json().get("uid"))
+    services = list(request.get_json().get("services"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -173,7 +163,7 @@ def pay_services(sub=None, role=None):
         if uid:
             if balance < all_cost:
                 return jsonify(error="not_enough_money"), 400
-                
+
             cur.execute(f"""
                         UPDATE {person_table}
                         SET balance = balance - ?
@@ -182,15 +172,15 @@ def pay_services(sub=None, role=None):
         
             cur.execute("""
                         UPDATE companies
-                        SET balance = balance + ?, profit = profit + ?
-                        WHERE company_id = ?;
-                        """, (all_cost, all_cost, company_id, ))
-        else:
-            cur.execute("""
-                        UPDATE companies
-                        SET profit = profit + ?
+                        SET balance = balance + ?
                         WHERE company_id = ?;
                         """, (all_cost, company_id, ))
+
+        cur.execute("""
+                    UPDATE companies
+                    SET profit = profit + ?
+                    WHERE company_id = ?;
+                    """, (all_cost, company_id, ))
             
 
         for pair in services:

@@ -34,8 +34,8 @@ def get_teacher_info(sub=None, role=None):
 @teachers_bp.route("/teachers/get_students", methods=["POST"])
 @check_authorization
 def get_students(sub=None, role=None):
-    firstname = request.get_json().get("firstname")
-    lastname = request.get_json().get("lastname")
+    firstname = str(request.get_json().get("firstname"))
+    lastname = str(request.get_json().get("lastname"))
     
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -56,8 +56,8 @@ def get_students(sub=None, role=None):
 @teachers_bp.route("/teachers/pay_student_salary", methods=["POST"])
 @check_authorization
 def pay_salary(sub=None, role=None):
-    salary = request.get_json().get("salary")
-    player_id = request.get_json().get("player_id")
+    salary = int(request.get_json().get("salary"))
+    player_id = int(request.get_json().get("player_id"))
 
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -89,27 +89,11 @@ def pay_salary(sub=None, role=None):
 @teachers_bp.route("/teachers/pay_student_taxes", methods=["POST"])
 @check_authorization
 def pay_student_taxes(sub=None, role=None):
-    is_card = bool(request.get_json().get("is_card"))
-    if is_card:
-        uid = request.get_json().get("uid")
-    else:
-        player_id = request.get_json().get("player_id")
+    player_id = int(request.get_json().get("player_id"))
 
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
-
-        if is_card:
-            cur.execute("""
-                        SELECT player_id
-                        FROM players
-                        WHERE nfc_uid = ? AND is_minister = 1;
-                        """, (uid, ))
-            player = cur.fetchone()
-            if not player:
-                return "404", 404
-            player_id = player[0]
-
 
         cur.execute("""
                     UPDATE players 

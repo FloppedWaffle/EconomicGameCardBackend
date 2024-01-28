@@ -4,15 +4,17 @@ from flask import request
 from datetime import datetime, timedelta, timezone
 import jwt
 import logging
-import platform
+import os
 
 LOG_FILE = "history.log"
 secret = "waffle" # TODO: перенести в переменную среды на системе
 HASH_ALGO = "HS256"
 
-SQLITE_PATH = "C:/Users/FloppedWaffle/Desktop/Проекты/EconomicGame 2023/Flask Backend (indev)/data/payments.sqlite"
-if platform.system() == "Linux":
-    SQLITE_PATH = "/root/EconomicGameCardBackend/data/payments.sqlite"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SQLITE_PATH = os.path.join(BASE_DIR, "..", "..", "data", "payments.sqlite")
+
+
+
 
 
 def get_auth_token(password: str, role: str) -> str:
@@ -22,7 +24,7 @@ def get_auth_token(password: str, role: str) -> str:
             "sub": password,
             "role": role,
             "iat": current_time.timestamp(),
-            "exp": (current_time + timedelta(hours=8)).timestamp()
+            "exp": (current_time + timedelta(hours=12)).timestamp()
         },
         secret,
         algorithm=HASH_ALGO)

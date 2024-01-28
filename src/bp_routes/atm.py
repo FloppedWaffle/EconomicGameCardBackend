@@ -29,7 +29,7 @@ def get_atm(sub=None, role=None):
 @atm_bp.route("/atm/get_person", methods=["POST"])
 @check_authorization
 def get_person(sub=None, role=None):
-    uid = request.get_json().get("uid")
+    uid = str(request.get_json().get("uid"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -52,7 +52,7 @@ def get_person(sub=None, role=None):
         if not person:
             return "404", 404
 
-        if role == "players" and person[5]:
+        if role == "players" and bool(person[5]):
                 cur.execute("""
                             SELECT taxes
                             FROM companies
@@ -69,9 +69,9 @@ def get_person(sub=None, role=None):
 @atm_bp.route("/atm/get_transfer_player", methods=["POST"])
 @check_authorization
 def get_transfer_player(sub=None, role=None):
-    firstname = request.get_json().get("firstname")
-    lastname = request.get_json().get("lastname")
-    uid = request.get_json().get("uid")
+    firstname = str(request.get_json().get("firstname"))
+    lastname = str(request.get_json().get("lastname"))
+    uid = str(request.get_json().get("uid"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -90,9 +90,9 @@ def get_transfer_player(sub=None, role=None):
 @atm_bp.route("/atm/transfer_player_money", methods=["POST"])
 @check_authorization
 def transfer_player_money(sub=None, role=None):
-    uid = request.get_json().get("uid")
-    player_id = request.get_json().get("player_id")
-    amount = request.get_json().get("amount")
+    uid = str(request.get_json().get("uid"))
+    player_id = int(request.get_json().get("player_id"))
+    amount = int(request.get_json().get("amount"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -130,7 +130,7 @@ def transfer_player_money(sub=None, role=None):
 @atm_bp.route("/atm/pay_player_taxes", methods=["POST"])
 @check_authorization
 def pay_player_taxes(sub=None, role=None):
-    uid = request.get_json().get("uid")
+    uid = str(request.get_json().get("uid"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -165,8 +165,8 @@ def pay_player_taxes(sub=None, role=None):
 @atm_bp.route("/atm/pay_company_taxes", methods=["POST"])
 @check_authorization
 def pay_company_taxes(sub=None, role=None):
-    uid = request.get_json().get("uid")
-    tax_amount = request.get_json().get("tax_amount")
+    uid = str(request.get_json().get("uid"))
+    tax_amount = int(request.get_json().get("tax_amount"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -219,7 +219,7 @@ def pay_company_taxes(sub=None, role=None):
 @atm_bp.route("/atm/pay_minister_salary", methods=["POST"])
 @check_authorization
 def pay_minister_salary(sub=None, role=None):
-    uid = request.get_json().get("uid")
+    uid = str(request.get_json().get("uid"))
 
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
@@ -258,7 +258,7 @@ def pay_minister_salary(sub=None, role=None):
 @atm_bp.route("/atm/exit", methods=["POST"])
 @check_authorization
 def atm_exit(sub=None, role=None):
-    exit_password = request.get_json().get("exit_password")
+    exit_password = str(request.get_json().get("exit_password"))
 
     if exit_password != sub:
         return "400", 400
