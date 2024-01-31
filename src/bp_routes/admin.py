@@ -65,6 +65,37 @@ def register_company():
 
 
 
+@admin_bp.route("/admin/register_teacher", methods=["POST"])
+def register_teacher():
+    firstname = request.get_json().get("firstname")
+    middlename = request.get_json().get("middlename")
+    subject_name = request.get_json().get("subject_name")
+    uid = request.get_json().get("uid")
+    password = request.get_json().get("password")
+
+    with sqlite3.connect(SQLITE_PATH) as con:
+        cur = con.cursor()
+
+        cur.execute("""
+                    SELECT *
+                    FROM teachers
+                    WHERE (firstname LIKE ? AND middlename LIKE ?) OR (middlename LIKE ? AND firstname LIKE ?) OR nfc_uid = ? OR password = ?;
+                    """, (firstname, middlename, firstname, middlename, uid, password))
+        person = cur.fetchone()
+        if person:
+            return "400", 400
+    
+        cur.execute("""
+                INSERT INTO teachers(firstname, middlename, subject_name, nfc_uid, password, balance)
+                VALUES(?, ?, ?, ?, ?, 0);
+                """, (firstname, middlename, subject_name, uid, password))
+
+        con.commit()
+    
+    return "200"
+
+
+
 @admin_bp.route("/admin/get_persons", methods=["POST"])
 def get_students(sub=None, role=None):
     firstname = request.get_json().get("firstname")

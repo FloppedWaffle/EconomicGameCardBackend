@@ -83,13 +83,16 @@ def authorize_user():
         token = token.decode("utf-8")
     
     if role == "teacher":
-        logger.info(f"Учитель с id {user} вошёл в программу")
+        message = f"Учитель с id {user} вошёл в программу"
     elif role == "company":
-        logger.info(f"Фирма с id {user} вошла в программу")
+        message = f"Фирма с id {user} вошёл в программу"
     elif role == "banker":
-        logger.info(f"Банкир с id {user} вошёл в программу")
+        message = f"Банкир с id {user} вошёл в программу"
     else:
-        logger.info(f"Банкомат с id {user} вошёл в программу")
+        message = f"Банкомат с id {user} вошёл в программу"
+    logger.info(message)
+
+    
         
     return jsonify(role=role, auth_token=token)
 
