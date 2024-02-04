@@ -1,13 +1,14 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify
 import sqlite3
-from .func_utils import logger, SQLITE_PATH
+from .func_utils import logger, SQLITE_PATH, check_authorization
 
 admin_bp = Blueprint("admin", __name__)
 
 
 
 @admin_bp.route("/admin/register_person", methods=["POST"])
-def register_person():
+@check_authorization
+def register_person(sub=None, role=None):
     firstname = request.get_json().get("firstname")
     lastname = request.get_json().get("lastname")
     grade = request.get_json().get("grade")
@@ -38,7 +39,8 @@ def register_person():
 
 
 @admin_bp.route("/admin/register_company", methods=["POST"])
-def register_company():
+@check_authorization
+def register_company(sub=None, role=None):
     company_name = request.get_json().get("company_name")
     password = request.get_json().get("password")
 
@@ -66,7 +68,8 @@ def register_company():
 
 
 @admin_bp.route("/admin/register_teacher", methods=["POST"])
-def register_teacher():
+@check_authorization
+def register_teacher(sub=None, role=None):
     firstname = request.get_json().get("firstname")
     middlename = request.get_json().get("middlename")
     subject_name = request.get_json().get("subject_name")
@@ -97,6 +100,7 @@ def register_teacher():
 
 
 @admin_bp.route("/admin/get_persons", methods=["POST"])
+@check_authorization
 def get_students(sub=None, role=None):
     firstname = request.get_json().get("firstname")
     lastname = request.get_json().get("lastname")
@@ -118,7 +122,8 @@ def get_students(sub=None, role=None):
 
 
 @admin_bp.route("/admin/get_person_balance", methods=["POST"])
-def get_person_balance():
+@check_authorization
+def get_person_balance(sub=None, role=None):
     player_id = request.get_json().get("player_id")
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -137,7 +142,8 @@ def get_person_balance():
 
 
 @admin_bp.route("/admin/get_companies", methods=["POST"])
-def get_companies():
+@check_authorization
+def get_companies(sub=None, role=None):
     company_name = request.get_json().get("company_name");
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -155,7 +161,8 @@ def get_companies():
 
 
 @admin_bp.route("/admin/get_company_info", methods=["POST"])
-def get_company_info():
+@check_authorization
+def get_company_info(sub=None, role=None):
     company_id = request.get_json().get("company_id");
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -180,7 +187,8 @@ def get_company_info():
 
 
 @admin_bp.route("/admin/add_person_to_company", methods=["POST"])
-def add_person_to_company():
+@check_authorization
+def add_person_to_company(sub=None, role=None):
     player_id = request.get_json().get("player_id")
     company_id = request.get_json().get("company_id")
     is_founder = bool(request.get_json().get("is_founder"))
@@ -218,7 +226,8 @@ def add_person_to_company():
 
 
 @admin_bp.route("/admin/remove_person_from_company", methods=["POST"])
-def remove_person_from_company():
+@check_authorization
+def remove_person_from_company(sub=None, role=None):
     player_id = request.get_json().get("player_id")
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -247,7 +256,8 @@ def remove_person_from_company():
 
 
 @admin_bp.route("/admin/remove_person", methods=["POST"])
-def remove_person():
+@check_authorization
+def remove_person(sub=None, role=None):
     player_id = request.get_json().get("player_id")
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -266,7 +276,8 @@ def remove_person():
 
 
 @admin_bp.route("/admin/remove_company", methods=["POST"])
-def remove_company():
+@check_authorization
+def remove_company(sub=None, role=None):
     company_id = request.get_json().get("company_id")
 
     with sqlite3.connect(SQLITE_PATH) as con:
@@ -291,7 +302,8 @@ def remove_company():
 
 
 @admin_bp.route("/admin/add_company_service", methods=["POST"])
-def add_company_service():
+@check_authorization
+def add_company_service(sub=None, role=None):
     company_id = request.get_json().get("company_id")
     service_name = request.get_json().get("service_name")
     service_cost = request.get_json().get("service_cost")
@@ -321,7 +333,8 @@ def add_company_service():
 
 
 @admin_bp.route("/admin/remove_company_service", methods=["POST"])
-def remove_company_service():
+@check_authorization
+def remove_company_service(sub=None, role=None):
     company_id = request.get_json().get("company_id")
     services = request.get_json().get("services")
 

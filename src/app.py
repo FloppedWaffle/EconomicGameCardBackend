@@ -1,7 +1,4 @@
-import sqlite3
-import sys
 from flask import Flask, jsonify, request
-
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
@@ -11,6 +8,12 @@ from bp_routes.bankers import bankers_bp
 from bp_routes.atm import atm_bp
 from bp_routes.admin import admin_bp
 from bp_routes.func_utils import SQLITE_PATH, get_auth_token, logger
+
+import sqlite3
+import sys
+import os
+from hashlib import sha256
+
 
 
 app = Flask(__name__)
@@ -25,8 +28,6 @@ limiter = Limiter(
         app=app,
         default_limits=["5 per 5 seconds"],
         storage_uri="memory://",)
-
-
 
 
 
@@ -76,6 +77,13 @@ def authorize_user():
             user = cur.fetchone()
 
         if not user:
+            role = "admin"
+            if not os.environ.get("FLASK_ADMIN_PASSWORD"):
+                return "400", 400
+            if password == sha256(os.environ.get("FLASK_ADMIN_PASSWORD").encode("UTF-8")).hexdigest():
+                user = "admin"
+
+        if not user:
             return "400", 400
 
     token = get_auth_token(password, role)
@@ -88,8 +96,10 @@ def authorize_user():
         message = f"Фирма с id {user} вошёл в программу"
     elif role == "banker":
         message = f"Банкир с id {user} вошёл в программу"
-    else:
+    elif role == "atm":
         message = f"Банкомат с id {user} вошёл в программу"
+    else:
+        message = f"Админ вошёл в программу"
     logger.info(message)
 
     

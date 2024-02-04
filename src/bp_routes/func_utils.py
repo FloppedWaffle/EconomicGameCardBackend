@@ -7,12 +7,20 @@ import logging
 import os
 
 LOG_FILE = "history.log"
-secret = "waffle" # TODO: перенести в переменную среды на системе
 HASH_ALGO = "HS256"
-
+secret = os.environ.get("FLASK_SECRET_WORD")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SQLITE_PATH = os.path.join(BASE_DIR, "..", "..", "data", "payments.sqlite")
 
+
+logging.basicConfig(
+    filename=LOG_FILE,
+    filemode='a',
+    format='[%(asctime)s] [%(name)s] [%(levelname)s] %(message)s',
+    level=logging.DEBUG,
+    datefmt='%d.%m.%Y %H:%M:%S'
+)
+logger = logging.getLogger('rest_logger')
 
 
 
@@ -46,17 +54,6 @@ def check_authorization(f):
         return f(*args, sub=payload["sub"], role=payload["role"], **kwargs)
 
     return wrapper
-
-
-
-logging.basicConfig(
-    filename=LOG_FILE,
-    filemode='a',
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.DEBUG,
-    datefmt='%d.%m.%Y %H:%M:%S'
-)
-logger = logging.getLogger('rest_logger')
 
 
 
