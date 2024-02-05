@@ -288,29 +288,30 @@ def pass_period():
 
 
 if __name__ == "__main__":
-    passPer = False
-    if passPer:
-        pass_period()
-    else:
-        db_mgr = gameDB(SQLITE_PATH)
+    pass
+    # passPer = False
+    # if passPer:
+    #     pass_period()
+    # else:
+    #     db_mgr = gameDB(SQLITE_PATH)
         
-        db_mgr.erase_table_players()
-        db_mgr.erase_table_teachers()
-        db_mgr.erase_table_companies()
-        db_mgr.erase_table_services()
-        db_mgr.erase_table_bankers()
-        db_mgr.erase_table_atm()
+    #     db_mgr.erase_table_players()
+    #     db_mgr.erase_table_teachers()
+    #     db_mgr.erase_table_companies()
+    #     db_mgr.erase_table_services()
+    #     db_mgr.erase_table_bankers()
+    #     db_mgr.erase_table_atm()
 
-        db_mgr.create_table_players()
-        db_mgr.create_table_teachers()
-        db_mgr.create_table_companies()
-        db_mgr.create_table_services()
-        db_mgr.create_table_bankers()
-        db_mgr.create_table_atm()
+    #     db_mgr.create_table_players()
+    #     db_mgr.create_table_teachers()
+    #     db_mgr.create_table_companies()
+    #     db_mgr.create_table_services()
+    #     db_mgr.create_table_bankers()
+    #     db_mgr.create_table_atm()
 
 
-        db_mgr.add_players_in_db()
-        db_mgr.add_teachers_in_db()
-        db_mgr.add_companies_and_services_in_db()
-        db_mgr.add_bankers_in_db()
-        db_mgr.add_atm_in_db()
+    #     db_mgr.add_players_in_db()
+    #     db_mgr.add_teachers_in_db()
+    #     db_mgr.add_companies_and_services_in_db()
+    #     db_mgr.add_bankers_in_db()
+    #     db_mgr.add_atm_in_db()

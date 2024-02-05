@@ -32,7 +32,7 @@ with sqlite3.connect(SQLITE_PATH) as con:
         subject_name = sheet['C' + str(row)].value
         uid = sheet['D' + str(row)].value
         
-        characters = string.ascii_letters + string.digits
+        characters = (string.ascii_letters + string.digits).replace('I', '', 1).replace('l', '', 1)
         password = ''.join(random.choice(characters) for _ in range(10))
         password_hash = sha256(password.encode("UTF-8")).hexdigest()
 
