@@ -58,11 +58,6 @@ def check_authorization(f):
 
 
 def pass_period():
-    # TODO: Каждый час, каждый период нужно переносить профит (домноженный на 0.1) на налоги у частных фирм
-    # TODO: Каждый час, каждый период нужно обнулять налоги всем игрокам, кроме гос. министров, владельцев и работников фирм
-    # TODO: Каждый час, каждый период нужно обнулять is_minister_paid, чтобы министры могли брать зарплату
-
-
     with sqlite3.connect(SQLITE_PATH) as con:
         cur = con.cursor()
 
@@ -70,7 +65,7 @@ def pass_period():
         cur.execute("""
                     UPDATE players
                     SET tax_paid = 0
-                    WHERE is_founder = 0 AND is_minister = 0 AND company_id = 0;
+                    WHERE is_minister = 0 AND is_founder = 0 AND company_id = 0;
                     """)
         
         # обнуляем статус выдачи зарплаты министрам

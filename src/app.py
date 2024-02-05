@@ -2,17 +2,20 @@ from flask import Flask, jsonify, request
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
+import sqlite3
+import sys
+import os
+from hashlib import sha256
+from datetime import datetime, timezone, timedelta
+import threading
+import time
+
 from bp_routes.teachers import teachers_bp
 from bp_routes.companies import companies_bp
 from bp_routes.bankers import bankers_bp
 from bp_routes.atm import atm_bp
 from bp_routes.admin import admin_bp
-from bp_routes.func_utils import SQLITE_PATH, get_auth_token, logger
-
-import sqlite3
-import sys
-import os
-from hashlib import sha256
+from bp_routes.func_utils import SQLITE_PATH, get_auth_token, logger, pass_period
 
 
 
@@ -107,5 +110,19 @@ def authorize_user():
     return jsonify(role=role, auth_token=token)
 
 
+
+def run_pending_period_pass():
+    while True:
+        time.sleep(1)
+        now = datetime.now(timezone(timedelta(hours=3)))
+        if now.hour in range(9, 16) and now.minute == 0:
+            pass_period()
+            print(f"Period passed in {now.hour}")
+            time.sleep(60)
+
+pending_thread = threading.Thread(target=run_pending_period_pass, daemon=True)
+
+
 if __name__ == "__main__":
+    # pending_thread.start()
     app.run(host="0.0.0.0", port=5000, debug=True)

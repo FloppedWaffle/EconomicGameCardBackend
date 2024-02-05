@@ -29,8 +29,8 @@ def register_person(sub=None, role=None):
     
         cur.execute("""
                 INSERT INTO players(firstname, lastname, grade, balance, tax_paid, is_minister, is_minister_paid, nfc_uid, is_founder, company_id)
-                VALUES(?, ?, ?, 0, 0, ?, 0, ?, 0, 0);
-                """, (firstname, lastname, grade, is_minister, uid, ))
+                VALUES(?, ?, ?, 0, ?, ?, 0, ?, 0, 0);
+                """, (firstname, lastname, grade, is_minister, is_minister, uid, ))
 
         con.commit()
     
@@ -110,7 +110,7 @@ def get_students(sub=None, role=None):
         cur = con.cursor()
 
         cur.execute("""
-                    SELECT firstname, lastname, grade, player_id 
+                    SELECT firstname, lastname, grade, player_id, is_minister 
                     FROM players 
                     WHERE firstname LIKE ? AND lastname LIKE ?;
                     """, (firstname + "%", lastname + "%", ))
