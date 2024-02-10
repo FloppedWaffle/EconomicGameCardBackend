@@ -301,7 +301,7 @@ def pay_minister_salary(sub=None, role=None):
                         UPDATE players
                         SET balance = balance + ?
                         WHERE nfc_uid = ?;
-                        """, (125, uid, )) # TODO: ВРЕМЕННАЯ ЗАРПЛАТА, ПОТОМ В КОНФИГ ДОБАВИТЬ НУЖНО НОРМАЛЬНО
+                        """, (30, uid, )) # TODO: ВРЕМЕННАЯ ЗАРПЛАТА, ПОТОМ В КОНФИГ ДОБАВИТЬ НУЖНО НОРМАЛЬНО
 
         cur.execute("""
                     UPDATE players
