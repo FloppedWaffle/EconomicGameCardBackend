@@ -8,12 +8,13 @@ After=network.target
 [Service]
 User=root
 WorkingDirectory=/root/EconomicGameCardBackend/src
-EnvironmentFile="/root/EconomicGameCardBackend/.env"
+EnvironmentFile=/root/EconomicGameCardBackend/.env
 ExecStart=/root/EconomicGameCardBackend/venv/bin/gunicorn -w 2 -b 0.0.0.0:5000 --chdir /root/EconomicGameCardBackend/src app:app
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=economicgame
+
 
 [Install]
 WantedBy=multi-user.target

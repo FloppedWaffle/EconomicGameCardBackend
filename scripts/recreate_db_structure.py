@@ -48,6 +48,7 @@ def reacreate_db():
                     name VARCHAR(256) NOT NULL UNIQUE,
                     balance INTEGER NOT NULL,
                     profit INTEGER NOT NULL,
+                    tax_percentage FLOAT NOT NULL,
                     taxes INTEGER NOT NULL,
                     is_state INTEGER NOT NULL)
                     """)

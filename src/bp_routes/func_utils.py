@@ -78,6 +78,6 @@ def pass_period():
         # переносим десятую часть дохода на налоги, а доход обнуляем
         cur.execute("""
                     UPDATE companies
-                    SET taxes = taxes + profit * 0.1, profit = 0
+                    SET taxes = taxes + CEILING(profit * tax_percentage), profit = 0
                     WHERE is_state = 0;
                     """)

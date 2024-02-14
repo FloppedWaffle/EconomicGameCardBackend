@@ -22,26 +22,31 @@ with sqlite3.connect(SQLITE_PATH) as con:
                 balance INTEGER NOT NULL)
                 """)
     
-    TEACHER_XLSX = os.path.join("data", "teachers.xlsx")
-    xls = openpyxl.open(TEACHER_XLSX)
+    TEACHERS_XLSX = os.path.join("data", "teachers.xlsx")
+    xls = openpyxl.open(TEACHERS_XLSX)
     sheet = xls.active
 
     for row in range(2, sheet.max_row + 1):
-        firstname = sheet['A' + str(row)].value
-        middlename = sheet['B' + str(row)].value
-        subject_name = sheet['C' + str(row)].value
-        uid = sheet['D' + str(row)].value
-        
-        characters = (string.ascii_letters + string.digits).replace('I', '', 1).replace('l', '', 1)
-        password = ''.join(random.choice(characters) for _ in range(10))
+        firstname = sheet['A' + str(row)].value.strip()
+        middlename = sheet['B' + str(row)].value.strip()
+        subject_name = sheet['C' + str(row)].value.strip()
+        uid = sheet['D' + str(row)].value.strip()
+
+        if len(sheet['E' + str(row)].value) < 10:
+            characters = (string.ascii_letters + string.digits).replace('I', '', 1).replace('l', '', 1)
+            password = ''.join(random.choice(characters) for _ in range(10))
+        else:
+            password = sheet['E' + str(row)].value.strip()
+
         password_hash = sha256(password.encode("UTF-8")).hexdigest()
+
 
         cur.execute("""
                     INSERT INTO teachers(nfc_uid, password, firstname, middlename, subject_name, balance)
                     VALUES(?, ?, ?, ?, ?, 0)
-                    """, (uid, password_hash, firstname, middlename, subject_name))
+                    """, (uid, password_hash, firstname, middlename, subject_name, ))
         
         sheet['E' + str(row)] = password
         
-    xls.save(TEACHER_XLSX)
+    xls.save(TEACHERS_XLSX)
     xls.close()
