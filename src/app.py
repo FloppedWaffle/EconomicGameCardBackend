@@ -117,12 +117,12 @@ def run_pending_period_pass():
         now = datetime.now(timezone(timedelta(hours=3)))
         if now.hour in range(9, 16) and now.minute == 0:
             pass_period()
-            print(f"Period passed in {now.hour}")
+            logger.info(f"Period passed in {now.hour}")
             time.sleep(60)
 
 pending_thread = threading.Thread(target=run_pending_period_pass, daemon=True)
 
 
 if __name__ == "__main__":
-    # pending_thread.start()
+    pending_thread.start()
     app.run(host="0.0.0.0", port=5000, debug=True)

@@ -44,10 +44,9 @@ def get_students(sub=None, role=None):
         cur.execute("""
                     SELECT firstname, lastname, grade, player_id 
                     FROM players 
-                    WHERE firstname LIKE ? AND lastname LIKE ?;
+                    WHERE firstname LIKE ? AND lastname LIKE ? AND is_minister = 0;
                     """, (firstname + "%", lastname + "%", ))
         players = cur.fetchall()
-        # TODO: AND is_minister = 0
         
 
     return jsonify(players=players)
